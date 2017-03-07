@@ -1,23 +1,51 @@
 {
 "contains": [
 	{
-		"group": "入门教程",
+		"group": "ExMobi6服务端入门教程",
 		"contains": [
 			{
-				"subject": "从Hello World开始",
+				"subject": "从Hello world开始",
 				"mdlink": "helloworld"
 			},
 			{
-				"subject": "平台功能简介",
-				"mdlink": ""
+				"subject": "前言",
+				"mdlink": "前言"
 			},
 			{
-				"subject": "Flex布局原理",
-				"mdlink": ""
+				"subject": "术语、定义和缩略语",
+				"mdlink": "术语、定义和缩略语"
 			},
 			{
-				"subject": "完成一个sprite应用",
-				"mdlink": ""
+				"subject": "服务推荐技术手段",
+				"mdlink": "服务推荐技术手段"
+			},
+			{
+				"subject": "原理和架构",
+				"mdlink": "原理和架构"
+			},
+			{
+				"subject": "服务包介绍",
+				"mdlink": "服务包介绍"
+			},
+			{
+				"subject": "SSM框架整合搭建",
+				"mdlink": "SSM框架整合搭建"
+			},
+			{
+				"subject": "服务HelloWorld",
+				"mdlink": "服务HelloWorld"
+			},
+			{
+				"subject": "服务开发API",
+				"mdlink": "服务开发API"
+			},
+			{
+				"subject": "典型场景示例",
+				"mdlink": "典型场景示例"
+			},
+			{
+				"subject": "服务与管理端集成场景介绍",
+				"mdlink": "服务与管理端集成场景介绍"
 			}
 		 ]
         }
