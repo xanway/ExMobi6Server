@@ -4,14 +4,6 @@
 		"group": "ExMobi6服务端入门教程",
 		"contains": [
 			{
-				"subject": "从Hello world开始",
-				"mdlink": "helloworld"
-			},
-			{
-				"subject": "前言",
-				"mdlink": "前言"
-			},
-			{
 				"subject": "术语、定义和缩略语",
 				"mdlink": "术语、定义和缩略语"
 			},
