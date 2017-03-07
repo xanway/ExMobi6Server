@@ -1,0 +1,25 @@
+{
+"contains": [
+	{
+		"group": "入门教程",
+		"contains": [
+			{
+				"subject": "从Hello World开始",
+				"mdlink": "helloworld"
+			},
+			{
+				"subject": "平台功能简介",
+				"mdlink": ""
+			},
+			{
+				"subject": "Flex布局原理",
+				"mdlink": ""
+			},
+			{
+				"subject": "完成一个sprite应用",
+				"mdlink": ""
+			}
+		 ]
+        }
+    ]
+}
