@@ -13,31 +13,31 @@
 			},
 			{
 				"subject": "原理和架构",
-				"mdlink": "原理和架构"
+				"mdlink": "principle_architecture"
 			},
 			{
 				"subject": "服务包介绍",
-				"mdlink": "服务包介绍"
+				"mdlink": "service_package"
 			},
 			{
 				"subject": "SSM框架整合搭建",
-				"mdlink": "SSM框架整合搭建"
+				"mdlink": "SSM"
 			},
 			{
 				"subject": "服务HelloWorld",
-				"mdlink": "服务HelloWorld"
+				"mdlink": "HelloWorld"
 			},
 			{
 				"subject": "服务开发API",
-				"mdlink": "服务开发API"
+				"mdlink": "service_api"
 			},
 			{
 				"subject": "典型场景示例",
-				"mdlink": "典型场景示例"
+				"mdlink": "typic_example"
 			},
 			{
 				"subject": "服务与管理端集成场景介绍",
-				"mdlink": "服务与管理端集成场景介绍"
+				"mdlink": "service_mng"
 			}
 		 ]
         }
