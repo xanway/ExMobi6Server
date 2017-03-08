@@ -5,11 +5,11 @@
 		"contains": [
 			{
 				"subject": "术语、定义和缩略语",
-				"mdlink": "术语、定义和缩略语"
+				"mdlink": "term_define_abbreviations"
 			},
 			{
 				"subject": "服务推荐技术手段",
-				"mdlink": "服务推荐技术手段"
+				"mdlink": "service_technical"
 			},
 			{
 				"subject": "原理和架构",
