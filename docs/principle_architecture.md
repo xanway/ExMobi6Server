@@ -41,7 +41,7 @@ ExMobi推荐应用开发者使用SpringMVC作为web开发框架开发服务，�
 如上图所示，用户的请求首先经过exmobi-access.jar，经过接入鉴权后，会智能路由的指定的Controller中，由Controller调用service/dao层，通过service/dao层调用exmobi-*.jar，或者Controller直接调用exmobi-*.jar，获得到业务数据并构建model层对象，最终通过view层展示。而这个过程中，一个Controller就是一个HTTP接口API，开发者可以定义任意多个Controller实现不同的业务逻辑。
 
 ## 运维管控API实现原理
-![运维管控API实现原理](image/mng_api.png)
+![运维管控API实现原理](image/mng_pai.png)
 
 运维管控API包括 exmobi-access.jar、 exmobi-mng.jar和exmobi-business.jar，主要负责搭建服务与管理端的通信通道、与管理端交互、定义通信接口、接入控制、应用访问服务鉴权、设备注册、设备绑定、服务访问记录上报、服务参数查询功能等。
 

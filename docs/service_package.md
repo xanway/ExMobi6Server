@@ -27,20 +27,22 @@ config.xml是服务与ExMobi管理端之间的桥梁，通过定义config.xml文
 
 config.xml文件示例如下：
 
-	<?xml version="1.0" encoding="UTF-8"?>
-	<config>
-		<group id="local" name="本地参数配置">
-			<paralist>
-				<param>
-					<paraKey>api_key</paraKey>
-					<paraValue>abzu862089doecoi2343242dfafd992</paraValue>
-					<paraName>访问IM服务器API访问密钥</paraName>
-					<paraMemo>访问IM服务器API访问密钥</paraMemo>
-					<paraRule>^.*$</paraRule>
-				</param>
-			</paralist>
-		</group>
-	</config>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<group id="local" name="本地参数配置">
+		<paralist>
+			<param>
+				<paraKey>api_key</paraKey>
+				<paraValue>abzu862089doecoi2343242dfafd992</paraValue>
+				<paraName>访问IM服务器API访问密钥</paraName>
+				<paraMemo>访问IM服务器API访问密钥</paraMemo>
+				<paraRule>^.*$</paraRule>
+			</param>
+		</paralist>
+	</group>
+</config>
+```
 
 config.xml文件中主要配置项说明
 
@@ -99,31 +101,33 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 1. 引入exmobi-mng-x.x.x.jar, exmobi-spring-x.x.x.jar
 在服务中引入exmobi-mng-x.x.x.jar，exmobi-spring-x.x.x.jar及其依赖的相关jar文件。
 2. web.xml中配置exmobi-mng能力的监听器
-
-		<listener>
-			<listener-class>com.fiberhome.commons.listener.MngListener</listener-class>
-		</listener>
+```xml
+<listener>
+	<listener-class>com.fiberhome.commons.listener.MngListener</listener-class>
+</listener>
+```
 3. web.xml中配置springmvc的DispatcherServlet为自动启动
-
-		<!--配置Springmvc核心控制器 -->
-		<servlet>
-			<servlet-name>spmvc</servlet-name>
-			<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-			<load-on-startup>1</load-on-startup>
-		</servlet>
-		<!--为DispatcherServlet建立映射 -->
-		<servlet-mapping>
-			<servlet-name>spmvc</servlet-name>
-			<url-pattern>*.do</url-pattern>
-		</servlet-mapping>
+```xml
+<!--配置Springmvc核心控制器 -->
+<servlet>
+	<servlet-name>spmvc</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+<!--为DispatcherServlet建立映射 -->
+<servlet-mapping>
+	<servlet-name>spmvc</servlet-name>
+	<url-pattern>*.do</url-pattern>
+</servlet-mapping>
+```
 4. springmvc-servlet.xml中增加CommonApplicationContext定义
 
 基于SpringMVC开发，在web.xml中定义了DispatcherServlet，SpringMVC会根据servlet-name加载指定的配置文件，如servlet-name取值：spmvc，SpringMVC会自动加载与web.xml同路径下名为spmvc-servlet.xml的配置文件。
 
 这里，我们需要在spmvc-servlet.xml文件中文件以下内容：
-
-	<bean id="myContext"class="com.fiberhome.spring.apiinfo.CommonApplicationContext"/>
-
+```xml
+<bean id="myContext"class="com.fiberhome.spring.apiinfo.CommonApplicationContext"/>
+```
 ### 其他技术开发
 
 基于其他技术开发的服务，如果希望在管理端的API管理中查看并调试API，需要自己配置API定义文件，API定义文件是以“ac”作为后缀名命名的文件，如：“test.ac”。API定义文件存放在MyService/WEB-INF/classes/api/目录下，详细请参考服务“[服务包介绍-目录结构](#cid_0)”章节。该目录下的ac文件，以API接口形式定义了服务的各种服务能力，API文件中定义的一系列接口，最终仍然会被转发到jsp目录下的处理页面中。
@@ -133,27 +137,27 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 服务端同时API定义做了界面展示功能，开发者可以在管理端以界面化的形式查看API定义。
 
 api文件定义示例：
-
-	<?xmlversion="1.0"encoding="UTF-8"?>
-	<maxml-api xmlns="http://www.nj.fiberhome.com.cn/map"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://www.nj.fiberhome.com.cn/map ../../../maxml-api-2.0.xsd">
-		<apis id="addrListController" name="服务" isrest="true" desc="服务API" class="com.fhxk.addrlist.controller.AddrListController">
-			<api uri="/service/getPerson.do" apimethod=" getPerson" name="getPersion" desc="获取人员信息" method="get">
-				<headers>
-					<header name="headername"desc="请求头"/>
-				</headers>
-				<params>
-					<param type="String" name="username" required="true" desc="用户名"/>
-					<param type="String" name="password" required="true" desc="密码"/>
-				</params>
-				<content><![CDATA[text]]></content>
-				<succrsp><![CDATA[text]]></succrsp>
-				<failrsp><![CDATA[text]]></failrsp>
-			</api>
-		</apis>
-	</maxml-api>
-
+```xml
+<?xmlversion="1.0"encoding="UTF-8"?>
+<maxml-api xmlns="http://www.nj.fiberhome.com.cn/map"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.nj.fiberhome.com.cn/map ../../../maxml-api-2.0.xsd">
+	<apis id="addrListController" name="服务" isrest="true" desc="服务API" class="com.fhxk.addrlist.controller.AddrListController">
+		<api uri="/service/getPerson.do" apimethod=" getPerson" name="getPersion" desc="获取人员信息" method="get">
+			<headers>
+				<header name="headername"desc="请求头"/>
+			</headers>
+			<params>
+				<param type="String" name="username" required="true" desc="用户名"/>
+				<param type="String" name="password" required="true" desc="密码"/>
+			</params>
+			<content><![CDATA[text]]></content>
+			<succrsp><![CDATA[text]]></succrsp>
+			<failrsp><![CDATA[text]]></failrsp>
+		</api>
+	</apis>
+</maxml-api>
+```
 <table>
    <tr>
       <td>元素</td>
