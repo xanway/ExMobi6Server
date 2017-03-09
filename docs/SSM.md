@@ -239,8 +239,10 @@ ALTER TABLE "addrlist"."tbl_member" ADD PRIMARY KEY ("member_id");
 ![Mybatis相关代码](image/SSM6.png)
 
 ### 第七步，建立Service接口和实现类
+
 目录结构：
 ![Service接口和实现类](image/SSM7.png)
+
 IMemberService.java：
 ```java
 package com.fh.demo.service;
@@ -252,6 +254,7 @@ public interface IMemberService {
 }
 
 ```
+
 MemberServiceImpl.java：
 ```java
 package com.fh.demo.service.impl;
@@ -326,6 +329,7 @@ public class MemberServiceImpl implements IMemberService{
 
 在web.xml中对spring-db.xml的引入以及配置的mvc-config.xml的Servlet就是为了完成SSM的整合。
 ![web.xml](image/springweb.png)
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
@@ -384,6 +388,7 @@ public class MemberServiceImpl implements IMemberService{
 ```
 ## 测试
 至此已完成了三大框架的整合，接下来我们来测试一下。
+
 ### 新建jsp页面
 ![jsp页面](image/SSM_jsp.png)
 
@@ -407,6 +412,7 @@ ${member.name }
 ### 建立MemberController类
 在com.fh.demo.controller包下建立MemberController类，作为一个控制器。
 ![MemberController类](image/SSM_controller.png)
+
 MemberController：
 ```java
 package com.fh.demo.controller;
