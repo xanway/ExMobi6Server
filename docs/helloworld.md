@@ -1,234 +1,246 @@
-<h1>helloworld</h1>  
+<h1>服务HelloWorld</h1>  
 
 ----------
 
-## 开发环境搭建  
+## 数据库服务
+### 功能介绍
+SSM开发模式，通过MyBatis这个持久层框架去操作数据库，但是exmobi-jar包内，本身也封装了对数据库操作的API，只不过不是面向对象的方式，所以在一些业务场景中，比较简单的SQL操作，也可以不通过MyBatis框架，直接用ExMobi6服务端jar包里的exmobi-db.jar去操作数据。下面我们就以一个实际的例子来体验下。
 
-1.	从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）和代码同步小工具SpriteHttpServer.exe。  
+本示例以集成服务API exmobi-db.jar为例，通过对应的数据库操作API对数据库进行访问操作。并提供出相应API接口供调用查询部门信息。（在[SSM环境搭建](/SSM.html)的工程中实现此示例，故相关配置项不再重复描述）
 
-2.	在手机上安装sprite.apk或者aprite.ipa，注意ios提供的是企业版，可以直接通过手机助手进行安装，安装后需要手动的在“设置-通用-描述文件与设备管理”对应用添加信任。  
+### 准备工作
+除第六章中SSM框架搭建所需jar包外还需以下jar包：
+* jackson-annotations-2.7.4.jar
 
-3.	随便在某个磁盘下创建一个文件目录，然后在目录里面创建一个apps目录，然后再把SpriteHttpServer.exe同步小工具放在和apps同级的目录下。  
+* jackson-core-2.7.4.jar
 
-<img  src="image/hw_1.png" /> 
+* jackson-core-asl-1.9.13.jar
 
-4.	要保证手机和自己的开发电脑在同一个wifi内，并且可以网通。  
+* jackson-databind-2.7.4.jar
 
-5.	然后开启SpriteHttpServer.exe。
+* mchange-commons-java-0.2.3.4.jar
 
- 
-##  新建项目    
+* commons-logging-1.1.1.jar
 
-1.	在apps目录下创建一个名为app.json的文件（文件名固定写法），然后编写如下json内容：  
+### 功能实现
+#### 第一步，编写API及视图页面
+编写实现API的Controller文件， 我们在com.fh.demo.controller包下建立ExMobiDbController.java文件
 
-<img  src="image/hw_2.png" />   
+```java
+package com.fh.demo.controller;
 
-homeJs:应用的入口js地址，res:前缀是基于apps目录开始；  
+import java.util.ArrayList;
+import java.util.List;
 
-orientation:横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 
-syncip:设置同步小工具所在开发电脑的IP地址，一般情况就是自己电脑的ip地址。  
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-syncname：设置同步小工具服务器名称，随便定义。  
+import com.fh.demo.entity.Member;
+import com.fiberhome.db.bean.TableRow;
+import com.fiberhome.db.impl.DBProcessImpl;
 
-由于app.json这个文件不会被同步，所以暂时需要手动的拷贝到手机对应的目录里，通过手机助手找到对应目录spirte/apps:  
+@Controller
+@RequestMapping("/exmobidb")
+public class ExMobiDbController {
 
-Ios手机对应目录：
-<img  src="image/hw_5.png" />    
-
-android手机对应目录：  
-
-<img  src="image/hw_15.png" />  
-
-
-2.	创建程序入口文件home.js  
-
-该文件名和文件路径和app.json里面指向的保存一致即可，上图示例中home.js文件是直接放在apps根目录下。然后编写home.js里面的内容代码如下：  
-
-```javascript
-require.config({
-        jsPaths: {
-        },
-        componentPaths:{
-        },
-        cssPaths:{
-        }
-});
-var app = require("App");
-var window = require("Window");
-app.on("launch",function(e,jsonData){
-    var type = jsonData.type;
-     if(type =="normal"){
-        //正常桌面启动
-        var json = {};
-        json.url = "res:myapp/index.uixml";
-        window.open(json);
-     }
-     else if(type =="app"){
-        //其他应用调用启动
-     } 
-     else if(type =="notification"){
-        //推送消息启动
-     } 
-     else if(type =="localNotification"){
-        //本地通知启动
-     }
- });
-
-```  
-
-关于home.js里面的配置说明，我们后面会详细介绍，home.js作为程序入口，那么就需要指定一个应用程序的起始页面，示例代码里面指向了res:myapp/index.uixml。  
-
-3.	根据指定的路径创建myapp文件目录，并且创建一个index.uixml文件。  
-
-<img  src="image/hw_3.png" />  
-<img  src="image/hw_4.png" />   
-
-Index.uixml页面基本格式如下:  
-
-```html
-<page>
-    <script>
-        <![CDATA[
-
-        ]] >
-    </script>
-    <style>
-
-    </style>
-    <ui>
-
-    </ui>
-</page>
-```  
-其中&lt;page&gt;是uixml页面格式的根节点，没有实际意义。&lt;script&gt;里面写js，&lt;style&gt;里面可以写css，&lt;ui&gt;里面就是页面布局了。  
-
-##  页面布局   
-
-下面开始页面布局，sprite平台中布局容器叫做box，大部分布局效果都用box完成。  
-
-首先在<ui>标签里面放一个box，让box宽高都等于手机屏幕。  
-
-<img  src="image/hw_6.png" /> 
-
-然后在box里面用<text>控件写上文字，并调整下样式让其居中。  
-
-<img  src="image/hw_7.png" /> 
-
-这个时候，可以用手机查看效果，注意：手机端会在页面关闭和程序关闭的时候进行代码同步。如果没有看到效果，尝试多关闭几次页面。  
-
-手机效果如下图：  
-
-<img width="250"  src="image/hw_8.png" />  
-
-
-##  实现一个动画  
-
-下面我们实现一个动画，让文字从小变大并且选中起来。代码如下：  
-
-```html
-
-<page>
-    <script>
-        <![CDATA[
-        var window = require("Window");
-        var document = require("Document");
-        var textBox  ; 
-        //页面如果加载的时候有控件动画必须放在animator监听页面加载动画结束之后进行
-        window.on("animator", function() {
-            //文本区域
-           textBox =  document.getElement("textBox"); 
-            //启动动画
-           startTextAnimation(); 
-        });
-        //文本区域动画
-        function startTextAnimation(){
-            //设置文本可见
-           textBox.setStyle("visibility","visible");
-           document.refresh();
-            var jsonData = {};
-            jsonData.fillAfter = 1;
-            var animationSet = new Array();
-            //缩放动画
-            var scaleAni = {};
-            scaleAni.type = "scale";
-            scaleAni.duration = 1500;
-            scaleAni.curve = "linear";
-            scaleAni.scaleFromX = 0.1;
-            scaleAni.scaleToX = 1;
-            scaleAni.scaleFromY = 0.1;
-            scaleAni.scaleToY = 1;
-            animationSet.push(scaleAni);
-            //旋转动画
-            var rotateAni = {};
-            rotateAni.type = "rotate";
-            rotateAni.duration = 1500;
-            rotateAni.curve = "linear";
-            rotateAni.fromDegree = 0;
-            rotateAni.toDegree = 360;
-            animationSet.push(rotateAni);
-            jsonData.animationSet = animationSet;
-            //启动动画
-            textBox.startAnimation(jsonData,function (){
-                
-            });
-        }
-        ]]>
-    </script>
-    <style>
-        .rootBox {
-            background-color: #0099cc;
-            width: fill_screen;
-            height: fill_screen;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .text {
-            color: #33b5e5;
-            font-size: 45;
-            text-align: center;
-        }
-        
-        .textBox {
-            visibility: hidden;
-        }
-    </style>
-    <ui>
-        <box class="rootBox">
-            <box id="textBox" class="textBox">
-                <text class="text">Sprite</text>
-                <text class="text">移动开发平台</text>
-            </box>
-        </box>
-    </ui>
-</page>
+	private static final Logger logger= LoggerFactory.getLogger(ExMobiDbController.class);
+	
+	//采用注解方式引入spring-db.xml配置的数据源bean对象
+	@Resource(name="dataSource")
+	private DataSource ds;
+	
+	//返回jsp视图处理
+	@RequestMapping("/page")
+	public String getMembers(Model model,@RequestParam(required=false,value="memberName")String memberName) throws Exception{
+		logger.info("============查询部门信息==========");
+		DBProcessImpl aaa = new DBProcessImpl(ds);
+		if(null != memberName && memberName.length()>0){
+			model.addAttribute("customers", aaa .queryRows("SELECT * FROM tbl_member WHERE name LIKE ?", new Object[] {"%"+memberName+"%"}));
+		}else{
+			
+			model.addAttribute("customers", aaa .queryRows("SELECT * FROM tbl_member LIMIT 10 OFFSET 0", null));
+		}
+		return "customer";
+	}
+	
+	//返回json数据
+	@RequestMapping("/json")
+	@ResponseBody
+	public Object getMembers(@RequestParam(required=false,value="memberName")String memberName) throws Exception{
+		logger.info("============查询部门信息==========");
+		DBProcessImpl aaa = new DBProcessImpl(ds);
+		List<TableRow> members = new ArrayList<TableRow>();
+		if(null != memberName && memberName.length()>0){
+			members = aaa .queryRows("SELECT * FROM tbl_member WHERE name LIKE ?", new Object[] {"%"+memberName+"%"});
+		}else{
+			members = aaa .queryRows("SELECT * FROM tbl_member LIMIT 10 OFFSET 0", new Object[] {null});
+		}
+		return members;
+	}
+}
 
 ```
 
-效果如下：  
+上述Api实现类，实现了两个方法，第一个方法是访问数据库得到的成员数据交给jsp页面去展现，第二个方法是直接给请求者输出成员数据的json格式。
 
-<img width="250"  src="image/hw_9.png" />  
+下面我们来实现展示页面customer.jsp,  位于Spring MVC配置文件配置指定的/WEB-INF/views/目录下
 
-接下来，我们在来做一个定时关闭页面的功能，在页面右上方放一个text用来显示倒计时。  
+```html
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
 
-<img   src="image/hw_10.png" />    
+<title>成员信息</title>
+</head>
+<body>
+<table border="1">
+	<thead>
+		<tr>
+			<td>成员姓名</td>
+			<td>手机号码</td>
+			<td>电子邮箱</td>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach items="${customers}" var="var" varStatus="vs">
+			<tr>
+				<td>${var.name }</td>
+				<td>${var.phoneNum }</td>
+				<td>${var.mail }</td>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
+</body>
+</html>
 
-然后给定样式，让其固定在页面右上方。  
+```
 
-<img   src="image/hw_11.png" />   
+#### 第二步，本地验证功能
 
-通过控件id获取到控件对象。  
+将工程发布到tomcat中，并启动tomcat。
 
-<img   src="image/hw_12.png" />    
+![发布tomcat](image/SSM7132.png)
 
-最后在动画结束的回调里面做一个定时器，注意用定时器需要在js导入var Time = require("Time");  
+JSON格式数据返回：
 
-<img   src="image/hw_13.png" /> 
+![JSON格式数据返回](image/SSM7132_2.png)
 
-编写定时器代码：
+页面方式返回：
 
-<img   src="image/hw_14.png" />   
+![页面方式数据返回](image/SSM_7132_3.png)
+
+#### 第三步，发布服务
+
+下面我们要从IDE里导出开发好的war包在ExMobi6服务端发布，服务发布流程图如下：
+
+![发布服务](image/SSM_7133_1.png)
+
+![发布服务](image/SSM_7133_2.png)
+
+![发布服务](image/SSM_7133_3.png)
+
+![发布服务](image/SSM_7133_4.png)
+
+## Http请求及页面抓取示例服务
+### 功能介绍
+本示例以集成服务API exmobi-http.jar为例，通过对应的HTTP操作API访问[ExMobi教程系统首页](https://edu.exmobi.cn/)，然后再通过exmobi-common.jar内封装的执行Xpath相关类，对网页内容进行抓取，把教程列表信息格式化成Json数据输出。（在第六章SSM环境搭建的工程中实现此示例，故相关配置项不再重复描述）
+
+### 准备工作
+
+准备exmobi-http.jar,exmobi-common.jar及依赖的jar
+
+### 功能实现
+#### 第一步，编写API
+
+编写实现此API的Controller类文件，在com.fh.demo.controller包下建立“WebParseController.java”类：
+
+```java
+package com.fh.demo.controller;
 
 
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.dom4j.Document;
+import org.dom4j.Node;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.fiberhome.common.suport.xpath.CachedDom4jXpathProcessImpl;
+import com.fiberhome.common.suport.xpath.IXPathProcess;
+import com.fiberhome.common.util.XmlUtil;
+import com.fiberhome.http.bean.HttpResponseBean;
+import com.fiberhome.http.impl.HttpUtil;
+
+@Controller
+@RequestMapping(value="/WebParse")
+public class WebParseController {
+
+	private static final Logger logger = Logger.getLogger(WebParseController.class);
+	
+	@RequestMapping("/edu")
+	@ResponseBody
+	public Object getEduList() throws Exception{
+		HttpUtil httpUtil = new HttpUtil();
+		String url = "https://edu.exmobi.cn/";
+		HttpResponseBean rsp = httpUtil.sendGet(url);//发起http请求
+		JSONObject rspJson = new JSONObject();
+		JSONArray articlesArray = new JSONArray();
+		// 获取响应吗
+		int status = rsp.getStatusCode();
+		if(status == 200){
+			//html转Dom文件
+			Document dom = XmlUtil.html2xml(rsp.getResponseBody("UTF-8"));
+			IXPathProcess ixp = new CachedDom4jXpathProcessImpl();
+			List<Object> articles = ixp.selectNodes("//div[@class='col-xs-6 col-md-3 edit']", dom);
+			for(Object at:articles){
+				Node atNode = (Node)at;
+				JSONObject article = new JSONObject();
+				article.put("title", ixp.selectNodeValue("./a/div/h6[1]/text()", atNode));
+				article.put("content", ixp.selectNodeValue("./a/div/h6[2]/text()", atNode));
+				article.put("href", ixp.selectNodeValue("./a/@href", atNode));
+				article.put("img", ixp.selectNodeValue("./a/img/@src", atNode));
+				articlesArray.add(article);
+			}
+			rspJson.put("articles", articlesArray);
+		}else{
+			rspJson.put("result", "fail");
+			rspJson.put("msg","业务系统响应异常，请联系管理员");
+		}
+		return rspJson;
+	}
+}
+
+```
+
+#### 第二步，本地验证功能
+将工程发布到tomcat中，并启动tomcat。
+
+![发布服务](image/SSM7232_1.png)
+
+JSON格式数据返回：
+
+![浏览器测试](image/SSM7232_2.png)
+
+#### 第三步，发布服务
+
+参照数据库服务功能实现章节
