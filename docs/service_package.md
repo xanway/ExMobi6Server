@@ -23,13 +23,13 @@ MyService      服务根目录
 ```
 
 <h2 id="cid_1">服务配置文件config.xml</h2>
-服务参数配置文件（config.xml）ExMobi提供的统一格式的配置文件，开发者在该文件中定义具体业务依赖的配置项，exmobi-business.jar提供了ParamConfig类及参数读取api，支持服务读取相关配置项。config.xml文件中定义的配置信息，会自动在ExMobi管理中展示，并且支持动态修改配置值。    
+服务参数配置文件（config.xml）ExMobi提供的统一格式的配置文件，开发者在该文件中定义具体业务依赖的配置项，exmobi-business.jar提供了ParamConfig类及参数读取api，支持服务读取相关配置项。config.xml文件中定义的配置信息，会自动在ExMobi管理中展示，并且支持动态修改配置值。      
 
 config.xml是服务与ExMobi管理端之间的桥梁，通过定义config.xml文件，可以做到参数定义统一配置，简化服务部署。  
 
-config.xml文件示例如下：    
+config.xml文件示例如下：      
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<group id="local" name="本地参数配置">
@@ -106,7 +106,7 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 
 2. web.xml中配置exmobi-mng能力的监听器  
 
-```xml
+```
 <listener>
 	<listener-class>com.fiberhome.commons.listener.MngListener</listener-class>
 </listener>
@@ -114,7 +114,7 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 
 3. web.xml中配置springmvc的DispatcherServlet为自动启动    
 
-```xml
+```
 <!--配置Springmvc核心控制器 -->
 <servlet>
 	<servlet-name>spmvc</servlet-name>
@@ -134,7 +134,7 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 
 这里，我们需要在spmvc-servlet.xml文件中文件以下内容：  
 
-```xml
+```
 <bean id="myContext"class="com.fiberhome.spring.apiinfo.CommonApplicationContext"/>
 ```
 
