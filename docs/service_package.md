@@ -1,9 +1,9 @@
-<h1>服务包介绍</h1>  
+#服务包介绍
 
 ----------
 ExMobi服务包必需遵循ExMobi服务包规范，开发者只有遵循ExMobi服务包规范开发的服务，才能在服务端正常运行，如果服务包不规范，将无法正常运行。
 
-## 目录结构
+<h2 id="cid_0">目录结构</h2>
 
 服务目录结构：
 
@@ -20,7 +20,7 @@ ExMobi服务包必需遵循ExMobi服务包规范，开发者只有遵循ExMobi�
 		|---   jsp  (可选)存放所有的jsp文件
 		|---   index.jsp  (可选)欢迎页面
 
-## 服务配置文件config.xml
+<h2 id="cid_1">服务配置文件config.xml</h2>
 服务参数配置文件（config.xml）ExMobi提供的统一格式的配置文件，开发者在该文件中定义具体业务依赖的配置项，exmobi-business.jar提供了ParamConfig类及参数读取api，支持服务读取相关配置项。config.xml文件中定义的配置信息，会自动在ExMobi管理中展示，并且支持动态修改配置值。
 
 config.xml是服务与ExMobi管理端之间的桥梁，通过定义config.xml文件，可以做到参数定义统一配置，简化服务部署。
@@ -85,7 +85,7 @@ config.xml文件中主要配置项说明
 </tr>
 </table>
 
-## API定义和管理
+<h2 id="cid_2">API定义和管理</h2>
 
 上传到ExMobi平台上的服务，支持对服务中定义的一系列API进行统一管理，同时支持自动化生产调试页面，方便开发者对API进行调试。
 
@@ -93,7 +93,7 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 
 ![API定义和管理](image/apimng.png)
 
-### SpringMVC技术开发
+<h3 id="cid_2_0">SpringMVC技术开发</h3>
 使用SpringMVC开发的服务，无需定义该目录及ac文件，只需在自己代码中增加相应的配置，即可在管理端的“API管理”页面中查看到API明细。
 
 配置步骤：
@@ -128,7 +128,7 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 ```xml
 <bean id="myContext"class="com.fiberhome.spring.apiinfo.CommonApplicationContext"/>
 ```
-### 其他技术开发
+<h3 id="cid_2_1">其他技术开发</h3>
 
 基于其他技术开发的服务，如果希望在管理端的API管理中查看并调试API，需要自己配置API定义文件，API定义文件是以“ac”作为后缀名命名的文件，如：“test.ac”。API定义文件存放在MyService/WEB-INF/classes/api/目录下，详细请参考服务“[服务包介绍-目录结构](#cid_0)”章节。该目录下的ac文件，以API接口形式定义了服务的各种服务能力，API文件中定义的一系列接口，最终仍然会被转发到jsp目录下的处理页面中。
 

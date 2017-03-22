@@ -1,7 +1,7 @@
-<h1>服务推荐技术手段</h1>  
+#服务推荐技术手段
 
 ----------
-## 开发技术
+<h2 id="cid_0">开发技术</h2>
 利用ExMobi平台开发应用，首先需要具备如下知识和技能：
 
 1. 精通XPATH
@@ -23,5 +23,5 @@ SpringMVC是一个基于DispatcherServlet的MVC框架，每一个请求最先访
 SpringMVC用于移动应用后端的开发，开发者仅需用@Controller声明一个控制器类，用@RequestMapping声明请求地址，即可定义一个后端API。
 ![Spring API](image/springapi.png)
 
-## 其他
+<h2 id="cid_1">其他</h2>
 ExMobi服务遵循JAVAEE标准WEB的目录结构并以war包形式上传到平台中，因此可以支持各种框架和技术手段实现的服务端程序，如传统的Spring + Struts2 + Hibernate、Spring + Struts2 + Ibatis，不过ExMobi服务端更推荐使用Spring + SpringMVC + exmobi-*.jar实现。
