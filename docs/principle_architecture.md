@@ -1,8 +1,10 @@
-#原理和架构 
+# 原理和架构 
 
 ----------
 <h2 id="cid_0">与ExMobi-server-5.x的区别</h2>
+
 ![ExMobi5 Server](image/exmobi5.png)
+
 
 相比于ExMobi-server-5.x，ExMobi-server-6.x版本彻底颠覆了原来以JSP作为业务处理核心的设计思路，放弃了以mapp.xml和jsp打包的应用插件(zip格式)的开发和运维方式，取而代之的是以支持全JAVA技术的服务为核心的移动应用后端，以容器和运行池作为运行载体的全新开发和运维方式。
 
@@ -16,8 +18,8 @@
 * 解决了5.x client和server迫切需要解耦的问题，应用插件包结构包括client，server，mapp.xml等3部分，client和server有紧密耦合性，已无法满足现在主流的API形式的开发模式，client和server迫切需要解耦。
 * 解决了5.x以jsp为开发基础的API开发形式，也无法摆脱jsp开发的各种弊端的问题。
 
-<h2 id="cid_2">ExMobi-server-6.x架构</h2>
-![ExMobi6 Server](image/exmobi6.png)
+<h2 id="cid_2">ExMobi-server-6.x架构</h2>  
+![ExMobi6 Server](image/exmobi6.png)  
 
 * 系统从终端层、网络接入层、访问控制层、应用层、服务层和数据层几个层次划分，各个功能分别分布于不同的层次。
 * 网络接入层中包含接入网关和管理端代理组件。运行池中不同部分分别分布于访问控制层和应用层。
@@ -28,7 +30,7 @@
 
 应用层各jar包使用说明请参照后面的服务开发章节。
 
-<h2 id="cid_3">服务的构成</h2>
+<h2 id="cid_3">服务的构成</h2>  
 ![Service Structure](image/service_struct.png)
 
 服务的主体仍然是web应用业务本身，同时ExMobi-server推出了ExMobi-*.jar，提供给服务调用，ExMobi-*.jar提供的API主要分为运维管控API和业务开发API两大类。其中运维管控API包括 exmobi-access.jar、 exmobi-mng.jar和exmobi-business.jar，主要负责搭建服务与管理端的通信通道、与管理端交互、定义通信接口、接入控制、应用访问服务鉴权、设备注册、设备绑定、服务访问记录上报、服务参数查询功能等；业务开发API包括exmobi-common.jar、exmobi-db-.jar、exmobi-ftp.jar、exmobi-http.jar、exmobi-push.jar、exmobi-preview.jar和exmobi-spring.jar，用于供应用业务代码调用，主要负责服务HTTP抓取、DB操作、FTP操作、推送、附件预览和基础工具集函数。

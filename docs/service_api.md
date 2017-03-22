@@ -1,4 +1,4 @@
-#服务开发API 
+# 服务开发API 
 
 ----------
 
@@ -9,20 +9,20 @@ HTTP协议操作API能力提供，主要提供支持发送HTTP/HTTPS请求及相
 
 <h3 id="cid_0_1">库依赖</h3>
 
-* 公共jar
+* 公共jar  
 
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 
-* 其他jar
+* 其他jar  
 
-exmobi-cache-1.0.0.jar
-httpcore-4.1.1.jar
-httpmime-4.1.1.jar
-httpclient-4.1.1.jar
-commons-codec-1.4.jar
+exmobi-cache-1.0.0.jar  
+httpcore-4.1.1.jar  
+httpmime-4.1.1.jar  
+httpclient-4.1.1.jar  
+commons-codec-1.4.jar  
 
 <h3 id="cid_0_2">主要API</h3>
 
@@ -128,12 +128,12 @@ publicvoid nomarReq1() throws Exception
 
 <h3 id="cid_1_1">库依赖</h3>
 
-* 公共jar
+* 公共jar  
  
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 
 <h3 id="cid_1_2">主要API</h3>
 <table>
@@ -197,25 +197,25 @@ publicvoid testQueryRow() throws Exception
 公共API，主要提供BASE64，MD5，UNICODE,文件读写，JSON,水印，签批，weboffice，ldap，xpath，xml，zip操作API。
 
 <h3 id="cid_2_1">库依赖</h3>
-* 公共jar
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+* 公共jar  
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 * 其他jar
-xercesImpl-2.11.0-FH.jar
-commons-codec-1.9.jar
-ant-launcher-1.8.3.jar
-ant-1.8.3.jar
-json-1.0.jar
-jackson-mapper-asl-1.9.13.jar
-jackson-core-asl-1.9.13.jar
-nekohtml-1.9.9.jar
-dom4j-1.6.1.jar
-jaxen-1.1.1.jar
-itext-2.1.7.jar
-saxon-9.1.0.8.jar
-saxon-9.1.0.8-dom.jar
+xercesImpl-2.11.0-FH.jar  
+commons-codec-1.9.jar  
+ant-launcher-1.8.3.jar  
+ant-1.8.3.jar  
+json-1.0.jar  
+jackson-mapper-asl-1.9.13.jar  
+jackson-core-asl-1.9.13.jar  
+nekohtml-1.9.9.jar  
+dom4j-1.6.1.jar  
+jaxen-1.1.1.jar  
+itext-2.1.7.jar  
+saxon-9.1.0.8.jar  
+saxon-9.1.0.8-dom.jar  
 
 <h3 id="cid_2_2">主要API</h3>
 
@@ -344,16 +344,16 @@ publicvoid testToSignature()
 
 * 公共jar
 
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 
-* 其他jar
+* 其他jar  
 
-dom4j-1.6.1.jar
-jaxen-1.1.1.jar
-xml-apis-1.3.02.jar
+dom4j-1.6.1.jar  
+jaxen-1.1.1.jar  
+xml-apis-1.3.02.jar  
 
 <h3 id="cid_3_2">主要API</h3>
 
@@ -395,7 +395,7 @@ xml-apis-1.3.02.jar
 </tr>
 </table>
 
-<h3 id="cid_3_3">示例</h3>
+<h3 id="cid_3_3">示例</h3>  
 ```java
 public static void main(String[] args)
 {
@@ -463,22 +463,22 @@ try
 
 <h3 id="cid_4_1">库依赖</h3>
 
-* 公共jar
+* 公共jar  
 
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 
-* 其他jar
+* 其他jar  
 
-jaxen-1.1.1.jar
+jaxen-1.1.1.jar  
 xml-apis-1.3.02.jar
-ant-launcher-1.8.3.jar
-ant-1.8.3.jar
-json-20090211.jar
-commons-codec-1.4.jar
-dom4j-1.6.1.jar
+ant-launcher-1.8.3.jar  
+ant-1.8.3.jar  
+json-20090211.jar  
+commons-codec-1.4.jar  
+dom4j-1.6.1.jar  
 
 <h3 id="cid_4_2">主要API</h3>
 
@@ -515,7 +515,7 @@ dom4j-1.6.1.jar
 </tr>
 </table>
 
-<h3 id="cid_4_3">示例</h3>
+<h3 id="cid_4_3">示例</h3>  
 ```java
 public staticvoid main(String[] args)
 {
@@ -564,19 +564,19 @@ public staticvoid main(String[] args)
 
 <h3 id="cid_5_1">库依赖</h3>
 
-* 公共jar
+* 公共jar  
 
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 
-* 其他jar
+* 其他jar  
 
-exmobi-cache-1.0.0.jar
-exmobi-mng-1.0.0jar
-management-ms-6.0.0.jar
-commons-beanutils-1.8.0.jar
+exmobi-cache-1.0.0.jar  
+exmobi-mng-1.0.0jar  
+management-ms-6.0.0.jar  
+commons-beanutils-1.8.0.jar  
 
 <h3 id="cid_5_2">主要API</h3>
 
@@ -618,7 +618,7 @@ commons-beanutils-1.8.0.jar
 </tr>
 </table>
 
-<h3 id="cid_5_3">示例</h3>
+<h3 id="cid_5_3">示例</h3>  
 
 ```xml
 <!—web.xml配置该过滤器，引入设备信息采集能力 -->
@@ -644,17 +644,17 @@ commons-beanutils-1.8.0.jar
 
 <h3 id="cid_6_1">库依赖</h3>
 
-* 公共jar
+* 公共jar  
 
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 
-* 其他jar
+* 其他jar  
 
-exmobi-mng-1.0.0jar
-management-ms-6.0.0.jar
+exmobi-mng-1.0.0jar  
+management-ms-6.0.0.jar  
 
 <h3 id="cid_6_2">主要API</h3>
 
@@ -719,24 +719,24 @@ public AppInfo testQueryLatestApp()
 
 <h3 id="cid_7_1">库依赖</h3>
 
-* 公共jar
+* 公共jar  
 
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 
-* 其他jar
+* 其他jar  
 
-management-common-5.3.0.jar
-management-ms-6.0.0.jar
-core-2.0.7.jar
-integration-beans-2.0.7.jar
-hessian-4.0.7.jar
-commons-cli-1.2.jar
-commons-io-2.0.1.jar
-jyaml-1.3.jar
-json-1.0.jar
+management-common-5.3.0.jar  
+management-ms-6.0.0.jar  
+core-2.0.7.jar  
+integration-beans-2.0.7.jar  
+hessian-4.0.7.jar  
+commons-cli-1.2.jar  
+commons-io-2.0.1.jar  
+jyaml-1.3.jar  
+json-1.0.jar  
 
 <h3 id="cid_7_2">主要API</h3>
 
@@ -771,26 +771,26 @@ Exmobi-spring.jar主要包含API定义注解和API抽取逻辑两部分。API定
 
 <h3 id="cid_8_1">库依赖</h3>
 
-* 公共jar
+* 公共jar  
 
-commons-logging-1.1.1.jar
-slf4j-api-1.6.2.jar
-slf4j-log4j12-1.6.2.jar
-log4j-1.2.16.jar
+commons-logging-1.1.1.jar  
+slf4j-api-1.6.2.jar  
+slf4j-log4j12-1.6.2.jar  
+log4j-1.2.16.jar  
 
 * 其他jar
 
-management-common-5.3.0.jar
-management-ms-6.0.0.jar
-Spring相关依赖库，由于不同服务使用Spring的版本可能不同，仅做名称列举，建议使用4.2.6.RELEASE以上版本
-主要包括
-spring-webmvc.jar
-spring-beans.jar
-spring-context.jar
-spring-aop.jar
-spring-core.jar
-spring-expression.jar
-spring-web.jar
+management-common-5.3.0.jar  
+management-ms-6.0.0.jar  
+Spring相关依赖库，由于不同服务使用Spring的版本可能不同，仅做名称列举，建议使用4.2.6.RELEASE以上版本  
+主要包括  
+spring-webmvc.jar  
+spring-beans.jar  
+spring-context.jar  
+spring-aop.jar  
+spring-core.jar  
+spring-expression.jar  
+spring-web.jar  
 
 <h3 id="cid_8_2">主要API</h3>
 
@@ -824,7 +824,7 @@ spring-web.jar
 
 <h3 id="cid_8_3">示例</h3>
 
-* 示例一：注解API的使用
+* 示例一：注解API的使用  
 
 ```java
 /**

@@ -1,4 +1,4 @@
-#服务HelloWorld
+# 服务HelloWorld
 
 ----------
 
@@ -9,18 +9,19 @@ SSM开发模式，通过MyBatis这个持久层框架去操作数据库，但是e
 本示例以集成服务API exmobi-db.jar为例，通过对应的数据库操作API对数据库进行访问操作。并提供出相应API接口供调用查询部门信息。（在[SSM环境搭建](/exmobiserver-begin/SSM.html)的工程中实现此示例，故相关配置项不再重复描述）
 
 <h3 id="cid_0_1">准备工作</h3>
-除第六章中SSM框架搭建所需jar包外还需以下jar包：
-* jackson-annotations-2.7.4.jar
+除第六章中SSM框架搭建所需jar包外还需以下jar包：  
 
-* jackson-core-2.7.4.jar
+* jackson-annotations-2.7.4.jar  
 
-* jackson-core-asl-1.9.13.jar
+* jackson-core-2.7.4.jar  
 
-* jackson-databind-2.7.4.jar
+* jackson-core-asl-1.9.13.jar  
 
-* mchange-commons-java-0.2.3.4.jar
+* jackson-databind-2.7.4.jar  
 
-* commons-logging-1.1.1.jar
+* mchange-commons-java-0.2.3.4.jar  
+
+* commons-logging-1.1.1.jar  
 
 <h3 id="cid_0_2">功能实现</h3>
 <h4 id="cid_0_2_0">第一步，编写API及视图页面</h4>

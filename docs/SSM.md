@@ -1,4 +1,4 @@
-#SSM框架整合搭建 
+# SSM框架整合搭建 
 
 ----------
 Spring+SpringMVC+Mybatis是目前最流行的java web框架组合，简单的来说SpringMVC负责处理客户端和web的请求，然后给客户端返回数据， Spring则是负责管理事务对象，也就是作为不同层面的衔接，而MyBatis是个持久层框架，通过MyBatis开发者可以以对象的方式操作业务系统数据库。
@@ -7,58 +7,57 @@ Spring+SpringMVC+Mybatis是目前最流行的java web框架组合，简单的来
 准备SSM框架所依赖的jar包
 
 * Spring相关jar包：
+spring-aop-4.3.1.RELEASE.jar  
 
-spring-aop-4.3.1.RELEASE.jar
+spring-beans-4.3.1.RELEASE.jar  
 
-spring-beans-4.3.1.RELEASE.jar
+spring-context-4.3.1.RELEASE.jar  
 
-spring-context-4.3.1.RELEASE.jar
+spring-context-support-4.3.1.RELEASE.jar  
 
-spring-context-support-4.3.1.RELEASE.jar
+spring-core-4.3.1.RELEASE.jar  
 
-spring-core-4.3.1.RELEASE.jar
+spring-expression-4.3.1.RELEASE.jar  
 
-spring-expression-4.3.1.RELEASE.jar
+spring-jdbc-4.3.1.RELEASE.jar  
 
-spring-jdbc-4.3.1.RELEASE.jar
+spring-test-4.3.1.RELEASE.jar  
 
-spring-test-4.3.1.RELEASE.jar
+spring-tx-4.3.1.RELEASE.jar  
 
-spring-tx-4.3.1.RELEASE.jar
+spring-web-4.3.1.RELEASE.jar  
 
-spring-web-4.3.1.RELEASE.jar
+spring-webmvc-4.3.1.RELEASE.jar  
 
-spring-webmvc-4.3.1.RELEASE.jar
+* MyBatis相关jar包：  
 
-* MyBatis相关jar包：
+mybatis-3.3.0.jar  
 
-mybatis-3.3.0.jar
+mybatis-spring-1.2.2.jar  
 
-mybatis-spring-1.2.2.jar
+* 数据库驱动jar包(根据具体数据库选择)：  
 
-* 数据库驱动jar包(根据具体数据库选择)：
+mysql-connecter-java-5.1.39.jar/postgresql-9.1-901.jdbc4.jar  
 
-mysql-connecter-java-5.1.39.jar/postgresql-9.1-901.jdbc4.jar
+* 日志相关jar包：  
 
-* 日志相关jar包：
+log4j-1.2.16.jar  
 
-log4j-1.2.16.jar
+slf4j-log4j12-1.6.2.jar  
 
-slf4j-log4j12-1.6.2.jar
+slf4j-api-1.6.2.jar  
 
-slf4j-api-1.6.2.jar
+* 映射json：  
 
-* 映射json：
+jackson-mapper-asl-1.9.13.jar  
 
-jackson-mapper-asl-1.9.13.jar
+* 编码相关jar包:  
 
-* 编码相关jar包:
+commons-codec-1.4.jar  
 
-commons-codec-1.4.jar
+* IO处理相关jar包：  
 
-* IO处理相关jar包：
-
-commons-io-2.0.1.jar
+commons-io-2.0.1.jar  
 
 <h2 id="cid_1">IDE及JDK要求</h2>
 
@@ -115,7 +114,8 @@ maxWait=60000
 ```
 
 <h3 id="cid_2_3">第四步，配置spring-db.xml文件</h3>
-在src目录下建立spring-db.xml文件，此文件用来完成Spring和Mybatis的整合。主要的就是自动扫描，自动注入，配置数据库。
+在src目录下建立spring-db.xml文件，此文件用来完成Spring和Mybatis的整合。主要的就是自动扫描，自动注入，配置数据库。  
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -184,7 +184,7 @@ maxWait=60000
 
 Log4j的配置很简单，而且也是通用的，下面给出一个基本的配置，换到其他项目中也无需做多大的调整，如果想做调整或者想了解Log4j的各种配置，请从哪看此链接http://blog.csdn.net/zhshulin/article/details/37937365。
 
-同样是在src目录下建立log4j.properties文件，示例代码如下：
+同样是在src目录下建立log4j.properties文件，示例代码如下：  
 
 ```javascript
 ## LOG CONFIG
@@ -208,7 +208,7 @@ log4j.logger.org.freeswitch.esl.client.inbound.InboundClientHandler=ERROR
 ```
 
 <h3 id="cid_2_5">第六步：创建MyBatis相关文件</h3>
-首先，我们来创建一个测试用数据库表（测试数据库为postgresql）
+首先，我们来创建一个测试用数据库表（测试数据库为postgresql）  
 ```sql
 CREATE TABLE "addrlist"."tbl_member" (
 "member_id" varchar(40) NOT NULL,

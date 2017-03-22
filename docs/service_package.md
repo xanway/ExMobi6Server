@@ -1,4 +1,4 @@
-#服务包介绍
+# 服务包介绍
 
 ----------
 ExMobi服务包必需遵循ExMobi服务包规范，开发者只有遵循ExMobi服务包规范开发的服务，才能在服务端正常运行，如果服务包不规范，将无法正常运行。
@@ -7,25 +7,27 @@ ExMobi服务包必需遵循ExMobi服务包规范，开发者只有遵循ExMobi�
 
 服务目录结构：
 
-	MyService      服务根目录
-		| --- WEB-INF  整个WEB中最安全的目录，无法直接访问，若访问，需要在web.xml中配置
-			|-- classes  保存所有的*.class文件	所有的class都要放在包中
-				|-- config.xml服务参数配置文件，ExMobi管理端会自动读取该路径文件展示参数并支持动态配置
-				|-- api(可选)用于存放API定义文件的目录，使用SpringMVC开发的服务，无需定义该目录及ac文件
-				|-- api.ac(可选)API定义文件，服务端会解析这些文件并展示在API管理中
-			|-- lib           存放第三方的jar文件
-			|-- web.xml  WEB的部署描述文件
-		|---   css  (可选)存放所有的*.css文件
-		|---   js   (可选)存放所有的*.js文件
-		|---   jsp  (可选)存放所有的jsp文件
-		|---   index.jsp  (可选)欢迎页面
+```html
+MyService      服务根目录
+	| --- WEB-INF  整个WEB中最安全的目录，无法直接访问，若访问，需要在web.xml中配置
+		|-- classes  保存所有的*.class文件	所有的class都要放在包中
+			|-- config.xml服务参数配置文件，ExMobi管理端会自动读取该路径文件展示参数并支持动态配置
+			|-- api(可选)用于存放API定义文件的目录，使用SpringMVC开发的服务，无需定义该目录及ac文件
+			|-- api.ac(可选)API定义文件，服务端会解析这些文件并展示在API管理中
+		|-- lib           存放第三方的jar文件
+		|-- web.xml  WEB的部署描述文件
+	|---   css  (可选)存放所有的*.css文件
+	|---   js   (可选)存放所有的*.js文件
+	|---   jsp  (可选)存放所有的jsp文件
+	|---   index.jsp  (可选)欢迎页面
+```
 
 <h2 id="cid_1">服务配置文件config.xml</h2>
-服务参数配置文件（config.xml）ExMobi提供的统一格式的配置文件，开发者在该文件中定义具体业务依赖的配置项，exmobi-business.jar提供了ParamConfig类及参数读取api，支持服务读取相关配置项。config.xml文件中定义的配置信息，会自动在ExMobi管理中展示，并且支持动态修改配置值。
+服务参数配置文件（config.xml）ExMobi提供的统一格式的配置文件，开发者在该文件中定义具体业务依赖的配置项，exmobi-business.jar提供了ParamConfig类及参数读取api，支持服务读取相关配置项。config.xml文件中定义的配置信息，会自动在ExMobi管理中展示，并且支持动态修改配置值。  
 
-config.xml是服务与ExMobi管理端之间的桥梁，通过定义config.xml文件，可以做到参数定义统一配置，简化服务部署。
+config.xml是服务与ExMobi管理端之间的桥梁，通过定义config.xml文件，可以做到参数定义统一配置，简化服务部署。  
 
-config.xml文件示例如下：
+config.xml文件示例如下：    
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -42,9 +44,8 @@ config.xml文件示例如下：
 		</paralist>
 	</group>
 </config>
-```
-
-config.xml文件中主要配置项说明
+```  
+config.xml文件中主要配置项说明  
 
 <table>
 <tr><th>Key值</th><th>类型</th><th>说明</th></tr>
@@ -100,13 +101,16 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 
 1. 引入exmobi-mng-x.x.x.jar, exmobi-spring-x.x.x.jar
 在服务中引入exmobi-mng-x.x.x.jar，exmobi-spring-x.x.x.jar及其依赖的相关jar文件。
-2. web.xml中配置exmobi-mng能力的监听器
+2. web.xml中配置exmobi-mng能力的监听器  
+
 ```xml
 <listener>
 	<listener-class>com.fiberhome.commons.listener.MngListener</listener-class>
 </listener>
 ```
-3. web.xml中配置springmvc的DispatcherServlet为自动启动
+
+3. web.xml中配置springmvc的DispatcherServlet为自动启动  
+
 ```xml
 <!--配置Springmvc核心控制器 -->
 <servlet>
@@ -120,14 +124,17 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 	<url-pattern>*.do</url-pattern>
 </servlet-mapping>
 ```
+
 4. springmvc-servlet.xml中增加CommonApplicationContext定义
 
 基于SpringMVC开发，在web.xml中定义了DispatcherServlet，SpringMVC会根据servlet-name加载指定的配置文件，如servlet-name取值：spmvc，SpringMVC会自动加载与web.xml同路径下名为spmvc-servlet.xml的配置文件。
 
-这里，我们需要在spmvc-servlet.xml文件中文件以下内容：
+这里，我们需要在spmvc-servlet.xml文件中文件以下内容：  
+
 ```xml
 <bean id="myContext"class="com.fiberhome.spring.apiinfo.CommonApplicationContext"/>
 ```
+
 <h3 id="cid_2_1">其他技术开发</h3>
 
 基于其他技术开发的服务，如果希望在管理端的API管理中查看并调试API，需要自己配置API定义文件，API定义文件是以“ac”作为后缀名命名的文件，如：“test.ac”。API定义文件存放在MyService/WEB-INF/classes/api/目录下，详细请参考服务“[服务包介绍-目录结构](#cid_0)”章节。该目录下的ac文件，以API接口形式定义了服务的各种服务能力，API文件中定义的一系列接口，最终仍然会被转发到jsp目录下的处理页面中。
@@ -136,9 +143,10 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 
 服务端同时API定义做了界面展示功能，开发者可以在管理端以界面化的形式查看API定义。
 
-api文件定义示例：
+api文件定义示例：  
+
 ```xml
-<?xmlversion="1.0"encoding="UTF-8"?>
+<?xml version="1.0"encoding="UTF-8"?>
 <maxml-api xmlns="http://www.nj.fiberhome.com.cn/map"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.nj.fiberhome.com.cn/map ../../../maxml-api-2.0.xsd">
@@ -159,166 +167,166 @@ api文件定义示例：
 </maxml-api>
 ```
 <table>
-   <tr>
-      <td>元素</td>
-      <td>父元素</td>
-      <td>必选</td>
-      <td>描述</td>
-   </tr>
-   <tr>
-      <td>&lt;apis/&gt;</td>
-      <td></td>
-      <td>是</td>
-      <td>API服务标签，其下定义一系列API组</td>
-   </tr>
-   <tr>
-      <td>&lt;api/&gt;</td>
-      <td>&lt;apis/&gt;</td>
-      <td>是</td>
-      <td>API定义标签，一个&lt;api/&gt;标签定义一个API接口</td>
-   </tr>
-   <tr>
-      <td>id</td>
-      <td>&lt;apis/&gt;</td>
-      <td>否</td>
-      <td>API分组id</td>
-   </tr>
-   <tr>
-      <td>name</td>
-      <td>&lt;apis/&gt;</td>
-      <td>否</td>
-      <td>API分组名词</td>
-   </tr>
-   <tr>
-      <td>isrest</td>
-      <td>&lt;apis/&gt;</td>
-      <td>否</td>
-      <td>API分组中的所有API的类型，定义是否是RestFul风格的API<br/>True：是<br/>False：不是<br/>缺省：不是</td>
-   </tr>
-   <tr>
-      <td>desc</td>
-      <td>&lt;apis/&gt;</td>
-      <td>否</td>
-      <td>API分组描述信息</td>
-   </tr>
-   <tr>
-      <td>class</td>
-      <td>&lt;apis/&gt;</td>
-      <td>是</td>
-      <td>Api实现类</td>
-   </tr>
-   <tr>
-      <td>uri</td>
-      <td>&lt;api/&gt;</td>
-      <td>是</td>
-      <td>以正则表达式匹配<br/>API的url匹配地址</td>
-   </tr>
-   <tr>
-      <td>apimethod</td>
-      <td>&lt;api/&gt;</td>
-      <td>是</td>
-      <td>处理请求的函数</td>
-   </tr>
-   <tr>
-      <td>name</td>
-      <td>&lt;api/&gt;</td>
-      <td>否</td>
-      <td>API名称</td>
-   </tr>
-   <tr>
-      <td>desc</td>
-      <td>&lt;api/&gt;</td>
-      <td>否</td>
-      <td>API描述</td>
-   </tr>
-   <tr>
-      <td>method</td>
-      <td>&lt;api/&gt;</td>
-      <td>否</td>
-      <td>HTTP请求API的method<br/>GET/POST</td>
-   </tr>
-   <tr>
-      <td>&lt;params/&gt;</td>
-      <td>&lt;api/&gt;</td>
-      <td>否</td>
-      <td>API请求参数列表标签，该标签包含了一系列param子标签</td>
-   </tr>
-   <tr>
-      <td>&lt;param/&gt;</td>
-      <td>&lt;params/&gt;</td>
-      <td>否</td>
-      <td>API请求参数定义标签</td>
-   </tr>
-   <tr>
-      <td>&lt;headers/&gt;</td>
-      <td>&lt;api/&gt;</td>
-      <td>否</td>
-      <td>API请求头列表标签，该标签包含了一系列header子标签</td>
-   </tr>
-   <tr>
-      <td>&lt;header/&gt;</td>
-      <td>&lt;headers/&gt;</td>
-      <td>否</td>
-      <td>API请求头定义标签</td>
-   </tr>
-   <tr>
-      <td>&lt;content/&gt;</td>
-      <td>&lt;api/&gt;</td>
-      <td>否</td>
-      <td>API请求体定义标签</td>
-   </tr>
-   <tr>
-      <td>&lt;succrsp/&gt;</td>
-      <td>&lt;api/&gt;</td>
-      <td>否</td>
-      <td>API成功响应体定义标签</td>
-   </tr>
-   <tr>
-      <td>&lt;failrsp/&gt;</td>
-      <td>&lt;api/&gt;</td>
-      <td>否</td>
-      <td>API失败响应体定义标签</td>
-   </tr>
-   <tr>
-      <td>type</td>
-      <td>&lt;param/&gt;</td>
-      <td>是</td>
-      <td>API请求参数类型<br/>取值：String, File<br/>String：字符串形式的数据<br/>File：文件形式的数据</td>
-   </tr>
-   <tr>
-      <td>name</td>
-      <td>&lt;param/&gt;</td>
-      <td>是</td>
-      <td>API请求参数名称</td>
-   </tr>
-   <tr>
-      <td>required</td>
-      <td>&lt;param/&gt;</td>
-      <td>是</td>
-      <td>API请求参数是否必填，true：必填，false：非必填</td>
-   </tr>
-   <tr>
-      <td>desc</td>
-      <td>&lt;param/&gt;</td>
-      <td>否</td>
-      <td>API请求参数描述</td>
-   </tr>
-   <tr>
-      <td>name</td>
-      <td>&lt;header/&gt;</td>
-      <td>是</td>
-      <td>API请求头名称</td>
-   </tr>
-   <tr>
-      <td>desc</td>
-      <td>&lt;header/&gt;</td>
-      <td>否</td>
-      <td>API请求头描述</td>
-   </tr>
-   <tr>
-      <td>isfile</td>
-      <td>&lt;succrsp/&gt;</td>
-      <td>否</td>
-      <td>API的成功响应是否是附件<br/>取值：true，false，<br/>缺省，false<br/>true：是<br/>false：否</td>
-   </tr>
+<tr>
+  <td>元素</td>
+  <td>父元素</td>
+  <td>必选</td>
+  <td>描述</td>
+</tr>
+<tr>
+  <td>&lt;apis/&gt;</td>
+  <td></td>
+  <td>是</td>
+  <td>API服务标签，其下定义一系列API组</td>
+</tr>
+<tr>
+  <td>&lt;api/&gt;</td>
+  <td>&lt;apis/&gt;</td>
+  <td>是</td>
+  <td>API定义标签，一个&lt;api/&gt;标签定义一个API接口</td>
+</tr>
+<tr>
+  <td>id</td>
+  <td>&lt;apis/&gt;</td>
+  <td>否</td>
+  <td>API分组id</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>&lt;apis/&gt;</td>
+  <td>否</td>
+  <td>API分组名词</td>
+</tr>
+<tr>
+  <td>isrest</td>
+  <td>&lt;apis/&gt;</td>
+  <td>否</td>
+  <td>API分组中的所有API的类型，定义是否是RestFul风格的API<br/>True：是<br/>False：不是<br/>缺省：不是</td>
+</tr>
+<tr>
+  <td>desc</td>
+  <td>&lt;apis/&gt;</td>
+  <td>否</td>
+  <td>API分组描述信息</td>
+</tr>
+<tr>
+  <td>class</td>
+  <td>&lt;apis/&gt;</td>
+  <td>是</td>
+  <td>Api实现类</td>
+</tr>
+<tr>
+  <td>uri</td>
+  <td>&lt;api/&gt;</td>
+  <td>是</td>
+  <td>以正则表达式匹配<br/>API的url匹配地址</td>
+</tr>
+<tr>
+  <td>apimethod</td>
+  <td>&lt;api/&gt;</td>
+  <td>是</td>
+  <td>处理请求的函数</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>&lt;api/&gt;</td>
+  <td>否</td>
+  <td>API名称</td>
+</tr>
+<tr>
+  <td>desc</td>
+  <td>&lt;api/&gt;</td>
+  <td>否</td>
+  <td>API描述</td>
+</tr>
+<tr>
+  <td>method</td>
+  <td>&lt;api/&gt;</td>
+  <td>否</td>
+  <td>HTTP请求API的method<br/>GET/POST</td>
+</tr>
+<tr>
+  <td>&lt;params/&gt;</td>
+  <td>&lt;api/&gt;</td>
+  <td>否</td>
+  <td>API请求参数列表标签，该标签包含了一系列param子标签</td>
+</tr>
+<tr>
+  <td>&lt;param/&gt;</td>
+  <td>&lt;params/&gt;</td>
+  <td>否</td>
+  <td>API请求参数定义标签</td>
+</tr>
+<tr>
+  <td>&lt;headers/&gt;</td>
+  <td>&lt;api/&gt;</td>
+  <td>否</td>
+  <td>API请求头列表标签，该标签包含了一系列header子标签</td>
+</tr>
+<tr>
+  <td>&lt;header/&gt;</td>
+  <td>&lt;headers/&gt;</td>
+  <td>否</td>
+  <td>API请求头定义标签</td>
+</tr>
+<tr>
+  <td>&lt;content/&gt;</td>
+  <td>&lt;api/&gt;</td>
+  <td>否</td>
+  <td>API请求体定义标签</td>
+</tr>
+<tr>
+  <td>&lt;succrsp/&gt;</td>
+  <td>&lt;api/&gt;</td>
+  <td>否</td>
+  <td>API成功响应体定义标签</td>
+</tr>
+<tr>
+  <td>&lt;failrsp/&gt;</td>
+  <td>&lt;api/&gt;</td>
+  <td>否</td>
+  <td>API失败响应体定义标签</td>
+</tr>
+<tr>
+  <td>type</td>
+  <td>&lt;param/&gt;</td>
+  <td>是</td>
+  <td>API请求参数类型<br/>取值：String, File<br/>String：字符串形式的数据<br/>File：文件形式的数据</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>&lt;param/&gt;</td>
+  <td>是</td>
+  <td>API请求参数名称</td>
+</tr>
+<tr>
+  <td>required</td>
+  <td>&lt;param/&gt;</td>
+  <td>是</td>
+  <td>API请求参数是否必填，true：必填，false：非必填</td>
+</tr>
+<tr>
+  <td>desc</td>
+  <td>&lt;param/&gt;</td>
+  <td>否</td>
+  <td>API请求参数描述</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>&lt;header/&gt;</td>
+  <td>是</td>
+  <td>API请求头名称</td>
+</tr>
+<tr>
+  <td>desc</td>
+  <td>&lt;header/&gt;</td>
+  <td>否</td>
+  <td>API请求头描述</td>
+</tr>
+<tr>
+  <td>isfile</td>
+  <td>&lt;succrsp/&gt;</td>
+  <td>否</td>
+  <td>API的成功响应是否是附件<br/>取值：true，false，<br/>缺省，false<br/>true：是<br/>false：否</td>
+</tr>
 </table>
