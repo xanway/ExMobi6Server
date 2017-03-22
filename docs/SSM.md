@@ -4,9 +4,9 @@
 Spring+SpringMVC+Mybatis是目前最流行的java web框架组合，简单的来说SpringMVC负责处理客户端和web的请求，然后给客户端返回数据， Spring则是负责管理事务对象，也就是作为不同层面的衔接，而MyBatis是个持久层框架，通过MyBatis开发者可以以对象的方式操作业务系统数据库。
 
 <h2 id="cid_0">准备工作</h2>
-准备SSM框架所依赖的jar包
+准备SSM框架所依赖的jar包  
 
-* Spring相关jar包：
+*  Spring相关jar包：
 spring-aop-4.3.1.RELEASE.jar  
 
 spring-beans-4.3.1.RELEASE.jar  
@@ -27,19 +27,19 @@ spring-tx-4.3.1.RELEASE.jar
 
 spring-web-4.3.1.RELEASE.jar  
 
-spring-webmvc-4.3.1.RELEASE.jar  
+spring-webmvc-4.3.1.RELEASE.jar    
 
-* MyBatis相关jar包：  
+*  MyBatis相关jar包：  
 
 mybatis-3.3.0.jar  
 
 mybatis-spring-1.2.2.jar  
 
-* 数据库驱动jar包(根据具体数据库选择)：  
+*  数据库驱动jar包(根据具体数据库选择)：  
 
 mysql-connecter-java-5.1.39.jar/postgresql-9.1-901.jdbc4.jar  
 
-* 日志相关jar包：  
+*  日志相关jar包：  
 
 log4j-1.2.16.jar  
 
@@ -47,17 +47,17 @@ slf4j-log4j12-1.6.2.jar
 
 slf4j-api-1.6.2.jar  
 
-* 映射json：  
+*  映射json：  
 
-jackson-mapper-asl-1.9.13.jar  
+jackson-mapper-asl-1.9.13.jar    
 
-* 编码相关jar包:  
+*  编码相关jar包:   
 
 commons-codec-1.4.jar  
 
-* IO处理相关jar包：  
+*  IO处理相关jar包：   
 
-commons-io-2.0.1.jar  
+commons-io-2.0.1.jar   
 
 <h2 id="cid_1">IDE及JDK要求</h2>
 
@@ -94,7 +94,7 @@ JDK版本要求1.7（不得使用1.8）。
 在src根目录下建立“jdbc. properties”配置文件，此文件用来配置工程要连接的数据库基本信息参数
 ![配置jdbc](image/SSM_jdbc.png)
 
-内容示例：
+内容示例：  
 
 ```javascript
 driver=org.postgresql.Driver
@@ -111,10 +111,10 @@ maxIdle=20
 minIdle=1
 #定义最长等待时间  
 maxWait=60000
-```
+```  
 
 <h3 id="cid_2_3">第四步，配置spring-db.xml文件</h3>
-在src目录下建立spring-db.xml文件，此文件用来完成Spring和Mybatis的整合。主要的就是自动扫描，自动注入，配置数据库。  
+在src目录下建立spring-db.xml文件，此文件用来完成Spring和Mybatis的整合。主要的就是自动扫描，自动注入，配置数据库。    
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -208,7 +208,8 @@ log4j.logger.org.freeswitch.esl.client.inbound.InboundClientHandler=ERROR
 ```
 
 <h3 id="cid_2_5">第六步：创建MyBatis相关文件</h3>
-首先，我们来创建一个测试用数据库表（测试数据库为postgresql）  
+首先，我们来创建一个测试用数据库表（测试数据库为postgresql）    
+
 ```sql
 CREATE TABLE "addrlist"."tbl_member" (
 "member_id" varchar(40) NOT NULL,
@@ -227,7 +228,7 @@ CREATE TABLE "addrlist"."tbl_member" (
 INSERT INTO "addrlist"."tbl_member" VALUES ('001d01be-8447-4561-a718-79b3a0ed0381', '张三', 'zhangsan', null, '13400917283', 'zhangsan@nj.fiberhome.com.cn', null, null, 'a54c934e-829b-404d-9555-5cbfa6039f71', '*', '2', '2017-01-11 11:16:11');
 INSERT INTO "addrlist"."tbl_member" VALUES ('0269c859-2494-47d2-ada3-a7d9c0a38f8e', '李四', 'lisi', null, '18652871836', 'lisi@nj.fiberhome.com.cn', null, null, '70d05f67-98f6-4c33-973d-237b826dfdf9', '*', '2', '2017-01-11 11:16:11');
 ALTER TABLE "addrlist"."tbl_member" ADD PRIMARY KEY ("member_id");
-```
+```  
 
 然后下面针对这个表我们需要创建Mybatis框架下的系列文件。
 
@@ -235,12 +236,14 @@ ALTER TABLE "addrlist"."tbl_member" ADD PRIMARY KEY ("member_id");
 
 生成MyBatis的mapper映射文件、Dao层的类、对应数据库表的实体类，大家可以用MyBatis Generator工具去创建，此工具的使用方法参考此链接http://blog.csdn.net/zhshulin/article/details/23912615；
 
-利用MyBatis Generator工具生成了相关代码后，把代码文件复制到工程中。如图：
+利用MyBatis Generator工具生成了相关代码后，把代码文件复制到工程中。如图：  
+
 ![Mybatis相关代码](image/SSM6.png)
 
 <h3 id="cid_2_6">第七步，建立Service接口和实现类</h3>
 
-目录结构：
+目录结构：  
+
 ![Service接口和实现类](image/SSM7.png)
 
 IMemberService.java：
@@ -279,7 +282,8 @@ public class MemberServiceImpl implements IMemberService{
 
 ```
 <h3 id="cid_2_7">第八步，配置SpringMVC</h3>
-在src目录下下建立mvc-config.xml文件，该文件主要实现了注解自动扫描机制、视图解析器、注解的启动等等。
+在src目录下下建立mvc-config.xml文件，该文件主要实现了注解自动扫描机制、视图解析器、注解的启动等等。  
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -324,11 +328,14 @@ public class MemberServiceImpl implements IMemberService{
    </bean>
 </beans>  
 
-```
+```  
+
 <h3 id="cid_2_8">第九步，配置web.xml</h3>
 
-在web.xml中对spring-db.xml的引入以及配置的mvc-config.xml的Servlet就是为了完成SSM的整合。
-![web.xml](image/springweb.png)
+在web.xml中对spring-db.xml的引入以及配置的mvc-config.xml的Servlet就是为了完成SSM的整合。  
+
+![web.xml](image/springweb.png)  
+
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -387,12 +394,14 @@ public class MemberServiceImpl implements IMemberService{
 
 ```
 <h2 id="cid_3">测试</h2>
-至此已完成了三大框架的整合，接下来我们来测试一下。
+至此已完成了三大框架的整合，接下来我们来测试一下。  
 
 <h3 id="cid_3_0">新建jsp页面</h3>
-![jsp页面](image/SSM_jsp.png)
 
-Showmember.jsp，此页面仅用来输出用户名，完成一个简单的流程。
+![jsp页面](image/SSM_jsp.png)  
+
+Showmember.jsp，此页面仅用来输出用户名，完成一个简单的流程。  
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -408,10 +417,12 @@ ${member.name }
 </body>
 </html>
 
-```
+```  
+
 <h3 id="cid_3_1">建立MemberController类</h3>
-在com.fh.demo.controller包下建立MemberController类，作为一个控制器。
-![MemberController类](image/SSM_controller.png)
+在com.fh.demo.controller包下建立MemberController类，作为一个控制器。  
+
+![MemberController类](image/SSM_controller.png)  
 
 MemberController：
 ```java
@@ -444,9 +455,10 @@ public class MemberController {
 
 ```
 <h3 id="cid_3_2">部署项目</h3>
-把此javaweb工程在tomcat里发布。
+把此javaweb工程在tomcat里发布。  
 
-发布完成后，在浏览器上访问测试，访问地址格式：http://${ip}:${port}/${ProjectId}/demo/showMember?memberId=xxxxx
-![浏览器测试](image/SSM_test.png)
+发布完成后，在浏览器上访问测试，访问地址格式：http://${ip}:${port}/${ProjectId}/demo/showMember?memberId=xxxxx  
+
+![浏览器测试](image/SSM_test.png)  
 
 至此，SSM三大框架整合完毕，在此基础上可以进行后续开发。

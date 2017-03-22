@@ -9,14 +9,14 @@ HTTP协议操作API能力提供，主要提供支持发送HTTP/HTTPS请求及相
 
 <h3 id="cid_0_1">库依赖</h3>
 
-* 公共jar  
+*  公共jar  
 
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
-log4j-1.2.16.jar  
+log4j-1.2.16.jar    
 
-* 其他jar  
+*  其他jar  
 
 exmobi-cache-1.0.0.jar  
 httpcore-4.1.1.jar  
@@ -91,7 +91,7 @@ commons-codec-1.4.jar
 
 <h3 id="cid_0_3">示例</h3>
 
-HTTP功能API调用代码片段
+HTTP功能API调用代码片段  
 
 ```java
 @Test
@@ -128,7 +128,7 @@ publicvoid nomarReq1() throws Exception
 
 <h3 id="cid_1_1">库依赖</h3>
 
-* 公共jar  
+*  公共jar  
  
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
@@ -164,7 +164,7 @@ log4j-1.2.16.jar
 </tr>
 </table>
 
-<h3 id="cid_1_3">示例</h3>
+<h3 id="cid_1_3">示例</h3>  
 
 ```java
 @Test
@@ -184,12 +184,11 @@ publicvoid testQueryRow() throws Exception
 
 	System.out.println(tr);
 }
-
 ```
 
 <h3 id="cid_1_4">更多</h3>
 
-见javadoc及example内示例
+见javadoc及example内示例  
 
 <h2 id="cid_2">exmobi-common.jar</h2>
 <h3 id="cid_2_0">功能介绍</h3>
@@ -197,12 +196,13 @@ publicvoid testQueryRow() throws Exception
 公共API，主要提供BASE64，MD5，UNICODE,文件读写，JSON,水印，签批，weboffice，ldap，xpath，xml，zip操作API。
 
 <h3 id="cid_2_1">库依赖</h3>
-* 公共jar  
+*  公共jar  
+
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
-log4j-1.2.16.jar  
-* 其他jar
+log4j-1.2.16.jar   
+*  其他jar
 xercesImpl-2.11.0-FH.jar  
 commons-codec-1.9.jar  
 ant-launcher-1.8.3.jar  
@@ -293,7 +293,7 @@ saxon-9.1.0.8-dom.jar
 
 </table>
 
-<h3 id="cid_2_3">示例</h3>
+<h3 id="cid_2_3">示例</h3>  
 
 ```java
 @Test
@@ -328,7 +328,6 @@ publicvoid testToSignature()
 		e.printStackTrace();
 	}
 }
-
 ```
 
 <h3 id="cid_2_4">更多</h3>
@@ -338,18 +337,18 @@ publicvoid testToSignature()
 <h2 id="cid_3">exmobi-push.jar</h2>
 <h3 id="cid_3_0">功能介绍</h3>
 
-推送API，主要提供消息推送到终端设备API
+推送API，主要提供消息推送到终端设备API  
 
 <h3 id="cid_3_1">库依赖</h3>
 
-* 公共jar
+*  公共jar
 
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
 log4j-1.2.16.jar  
 
-* 其他jar  
+*  其他jar  
 
 dom4j-1.6.1.jar  
 jaxen-1.1.1.jar  
@@ -396,6 +395,7 @@ xml-apis-1.3.02.jar
 </table>
 
 <h3 id="cid_3_3">示例</h3>  
+  
 ```java
 public static void main(String[] args)
 {
@@ -463,14 +463,14 @@ try
 
 <h3 id="cid_4_1">库依赖</h3>
 
-* 公共jar  
+*  公共jar  
 
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
 log4j-1.2.16.jar  
 
-* 其他jar  
+*  其他jar  
 
 jaxen-1.1.1.jar  
 xml-apis-1.3.02.jar
@@ -515,7 +515,8 @@ dom4j-1.6.1.jar
 </tr>
 </table>
 
-<h3 id="cid_4_3">示例</h3>  
+<h3 id="cid_4_3">示例</h3>    
+
 ```java
 public staticvoid main(String[] args)
 {
@@ -564,14 +565,14 @@ public staticvoid main(String[] args)
 
 <h3 id="cid_5_1">库依赖</h3>
 
-* 公共jar  
+*  公共jar  
 
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
 log4j-1.2.16.jar  
 
-* 其他jar  
+*  其他jar  
 
 exmobi-cache-1.0.0.jar  
 exmobi-mng-1.0.0jar  
@@ -618,7 +619,7 @@ commons-beanutils-1.8.0.jar
 </tr>
 </table>
 
-<h3 id="cid_5_3">示例</h3>  
+<h3 id="cid_5_3">示例</h3>    
 
 ```xml
 <!—web.xml配置该过滤器，引入设备信息采集能力 -->
@@ -644,14 +645,14 @@ commons-beanutils-1.8.0.jar
 
 <h3 id="cid_6_1">库依赖</h3>
 
-* 公共jar  
+*  公共jar  
 
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
 log4j-1.2.16.jar  
 
-* 其他jar  
+*  其他jar  
 
 exmobi-mng-1.0.0jar  
 management-ms-6.0.0.jar  
@@ -686,7 +687,7 @@ management-ms-6.0.0.jar
 </tr>
 </table>
 
-<h3 id="cid_6_3">示例</h3>
+<h3 id="cid_6_3">示例</h3>  
 
 ```java
 public AppInfo testQueryLatestApp()
@@ -719,14 +720,14 @@ public AppInfo testQueryLatestApp()
 
 <h3 id="cid_7_1">库依赖</h3>
 
-* 公共jar  
+*  公共jar  
 
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
-log4j-1.2.16.jar  
+log4j-1.2.16.jar    
 
-* 其他jar  
+*  其他jar  
 
 management-common-5.3.0.jar  
 management-ms-6.0.0.jar  
@@ -753,7 +754,7 @@ json-1.0.jar
 </tr>
 </table>
 
-<h3 id="cid_7_3">示例</h3>
+<h3 id="cid_7_3">示例</h3>  
 
 ```xml
 <listener>		
@@ -765,20 +766,20 @@ json-1.0.jar
 
 <h3 id="cid_8_0">功能介绍</h3>
 
-Exmobi-spring.jar是ExMobi提供的用于让服务与SpringMVC相结合的开发包，基于SpringMVC开发的服务，建议引用该包文件。
+Exmobi-spring.jar是ExMobi提供的用于让服务与SpringMVC相结合的开发包，基于SpringMVC开发的服务，建议引用该包文件。  
 
-Exmobi-spring.jar主要包含API定义注解和API抽取逻辑两部分。API定义注解，帮助开发者更清晰的定义API的结构，包括请求体、正确响应示例、错误响应示例、API描述等。API抽取逻辑是ExMobi管理调用的逻辑，通过API抽取逻辑，管理端可以自动化将开发者基于SpringMVC开发的服务中的API定义展示到管理端中，方便API的管理、调试和传播。
+Exmobi-spring.jar主要包含API定义注解和API抽取逻辑两部分。API定义注解，帮助开发者更清晰的定义API的结构，包括请求体、正确响应示例、错误响应示例、API描述等。API抽取逻辑是ExMobi管理调用的逻辑，通过API抽取逻辑，管理端可以自动化将开发者基于SpringMVC开发的服务中的API定义展示到管理端中，方便API的管理、调试和传播。  
 
 <h3 id="cid_8_1">库依赖</h3>
 
-* 公共jar  
+*  公共jar  
 
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
 log4j-1.2.16.jar  
 
-* 其他jar
+*  其他jar
 
 management-common-5.3.0.jar  
 management-ms-6.0.0.jar  
@@ -824,7 +825,7 @@ spring-web.jar
 
 <h3 id="cid_8_3">示例</h3>
 
-* 示例一：注解API的使用  
+* 示例一：注解API的使用    
 
 ```java
 /**
@@ -857,18 +858,18 @@ public class AddrListController {
 
 ```
 
-示例中getaddrlist方法上的四个“Api”开头的注解，即是API定义注解的使用示例，API定义注解，定义在Controller的方法上，标识API的定义信息。
+示例中getaddrlist方法上的四个“Api”开头的注解，即是API定义注解的使用示例，API定义注解，定义在Controller的方法上，标识API的定义信息。 
 
-示例中，ApiSuccessResponseBody注解，通过exampleFile 属性指定succRspBody.json文件，succRspBody.json文件中填写了API的正确响应的示例内容，而succRspBody.json文件就和AddrListController类在一起：
+示例中，ApiSuccessResponseBody注解，通过exampleFile 属性指定succRspBody.json文件，succRspBody.json文件中填写了API的正确响应的示例内容，而succRspBody.json文件就和AddrListController类在一起：  
 
-![注解成功响应示例json](image/exmobi-spring_8941.png)
+![注解成功响应示例json](image/exmobi-spring_8941.png)  
 
-示例中，ApiFailResponseBody注解，通过exampleFile 属性指定failRspBody.json文件，failRspBody.json文件中填写了API的错误响应的示例内容，而failRspBody.json文件就和AddrListController类在一起：
+示例中，ApiFailResponseBody注解，通过exampleFile 属性指定failRspBody.json文件，failRspBody.json文件中填写了API的错误响应的示例内容，而failRspBody.json文件就和AddrListController类在一起： 
 
-![注解失败响应示例json](image/exmobi-spring_8942.png)
+![注解失败响应示例json](image/exmobi-spring_8942.png)  
 
 * 示例二：
 
-API抽取逻辑功能的使用
+API抽取逻辑功能的使用  
 
 参照[服务包介绍-API定义和管理章节的SpringMVC](https://gitdocument.exmobi.cn/exmobiserver-begin/service_package.html#cid_2_0)API定义和管理章节的SpringMVC技术开发章节的内容

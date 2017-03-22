@@ -23,7 +23,7 @@ MyService      服务根目录
 ```
 
 <h2 id="cid_1">服务配置文件config.xml</h2>
-服务参数配置文件（config.xml）ExMobi提供的统一格式的配置文件，开发者在该文件中定义具体业务依赖的配置项，exmobi-business.jar提供了ParamConfig类及参数读取api，支持服务读取相关配置项。config.xml文件中定义的配置信息，会自动在ExMobi管理中展示，并且支持动态修改配置值。  
+服务参数配置文件（config.xml）ExMobi提供的统一格式的配置文件，开发者在该文件中定义具体业务依赖的配置项，exmobi-business.jar提供了ParamConfig类及参数读取api，支持服务读取相关配置项。config.xml文件中定义的配置信息，会自动在ExMobi管理中展示，并且支持动态修改配置值。    
 
 config.xml是服务与ExMobi管理端之间的桥梁，通过定义config.xml文件，可以做到参数定义统一配置，简化服务部署。  
 
@@ -45,6 +45,7 @@ config.xml文件示例如下：
 	</group>
 </config>
 ```  
+
 config.xml文件中主要配置项说明  
 
 <table>
@@ -95,21 +96,23 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 ![API定义和管理](image/apimng.png)
 
 <h3 id="cid_2_0">SpringMVC技术开发</h3>
-使用SpringMVC开发的服务，无需定义该目录及ac文件，只需在自己代码中增加相应的配置，即可在管理端的“API管理”页面中查看到API明细。
+使用SpringMVC开发的服务，无需定义该目录及ac文件，只需在自己代码中增加相应的配置，即可在管理端的“API管理”页面中查看到API明细。  
 
 配置步骤：
 
-1. 引入exmobi-mng-x.x.x.jar, exmobi-spring-x.x.x.jar
-在服务中引入exmobi-mng-x.x.x.jar，exmobi-spring-x.x.x.jar及其依赖的相关jar文件。
+1. 引入exmobi-mng-x.x.x.jar, exmobi-spring-x.x.x.jar    
+
+在服务中引入exmobi-mng-x.x.x.jar，exmobi-spring-x.x.x.jar及其依赖的相关jar文件。  
+
 2. web.xml中配置exmobi-mng能力的监听器  
 
 ```xml
 <listener>
 	<listener-class>com.fiberhome.commons.listener.MngListener</listener-class>
 </listener>
-```
+```  
 
-3. web.xml中配置springmvc的DispatcherServlet为自动启动  
+3. web.xml中配置springmvc的DispatcherServlet为自动启动    
 
 ```xml
 <!--配置Springmvc核心控制器 -->
@@ -123,11 +126,11 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 	<servlet-name>spmvc</servlet-name>
 	<url-pattern>*.do</url-pattern>
 </servlet-mapping>
-```
+```  
 
-4. springmvc-servlet.xml中增加CommonApplicationContext定义
+4. springmvc-servlet.xml中增加CommonApplicationContext定义  
 
-基于SpringMVC开发，在web.xml中定义了DispatcherServlet，SpringMVC会根据servlet-name加载指定的配置文件，如servlet-name取值：spmvc，SpringMVC会自动加载与web.xml同路径下名为spmvc-servlet.xml的配置文件。
+基于SpringMVC开发，在web.xml中定义了DispatcherServlet，SpringMVC会根据servlet-name加载指定的配置文件，如servlet-name取值：spmvc，SpringMVC会自动加载与web.xml同路径下名为spmvc-servlet.xml的配置文件。  
 
 这里，我们需要在spmvc-servlet.xml文件中文件以下内容：  
 
@@ -141,7 +144,7 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 
 开发者可以将每个ac文件理解为一个模块，这个ac文件里面定义了某个模块下的一系列接口，开发者在一个服务的api目录下定义多个ac文件，实现整个服务不同模块的所有API的接口定义。
 
-服务端同时API定义做了界面展示功能，开发者可以在管理端以界面化的形式查看API定义。
+服务端同时API定义做了界面展示功能，开发者可以在管理端以界面化的形式查看API定义。   
 
 api文件定义示例：  
 
