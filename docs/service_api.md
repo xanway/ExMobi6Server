@@ -96,7 +96,7 @@ HTTP功能API调用代码片段
 
 ```java
 @Test
-publicvoid nomarReq1() throws Exception
+public void nomarReq1() throws Exception
 {
 	HttpUtil httputil = new HttpUtil();
 
@@ -171,7 +171,7 @@ log4j-1.2.16.jar
 
 ```java
 @Test
-publicvoid testQueryRow() throws Exception
+public void testQueryRow() throws Exception
 {
 	// 获取数据源
 	DataSource ds = getDataSource();
@@ -304,7 +304,7 @@ saxon-9.1.0.8-dom.jar
 
 ```java
 @Test
-publicvoid testToSignature()
+public void testToSignature()
 {
 	try
 	{
@@ -527,7 +527,7 @@ dom4j-1.6.1.jar
 <h3 id="cid_4_3">示例</h3>    
 
 ```java
-public staticvoid main(String[] args)
+public static void main(String[] args)
 {
 	FileToHtml fileToHtml = new FileToHtml("http://192.168.160.79:8001/services/dcsService/");
 	FilePreviewResult result = null;
