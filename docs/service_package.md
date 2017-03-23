@@ -99,17 +99,17 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 
 ![API定义和管理](image/apimng.png)
 
-<h3 id="cid_2_0">SpringMVC技术开发</h3>  
+<h3 id="cid_2_0">SpringMVC技术开发</h3>    
 
 使用SpringMVC开发的服务，无需定义该目录及ac文件，只需在自己代码中增加相应的配置，即可在管理端的“API管理”页面中查看到API明细。  
 
 配置步骤：
 
-1. 引入exmobi-mng-x.x.x.jar, exmobi-spring-x.x.x.jar    
+1.引入exmobi-mng-x.x.x.jar, exmobi-spring-x.x.x.jar    
 
-在服务中引入exmobi-mng-x.x.x.jar，exmobi-spring-x.x.x.jar及其依赖的相关jar文件。  
+在服务中引入exmobi-mng-x.x.x.jar，exmobi-spring-x.x.x.jar及其依赖的相关jar文件。      
 
-2. web.xml中配置exmobi-mng能力的监听器  
+2.web.xml中配置exmobi-mng能力的监听器  
 
 ```xml
 <listener>
@@ -117,7 +117,7 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 </listener>
 ```  
 
-3. web.xml中配置springmvc的DispatcherServlet为自动启动      
+3.web.xml中配置springmvc的DispatcherServlet为自动启动      
 
 ```xml
 <!--配置Springmvc核心控制器 -->
@@ -133,7 +133,7 @@ ExMobi平台对上传上来的服务做了两中技术手段的区分，一种�
 </servlet-mapping>
 ```  
 
-4. springmvc-servlet.xml中增加CommonApplicationContext定义    
+4.springmvc-servlet.xml中增加CommonApplicationContext定义    
 
 基于SpringMVC开发，在web.xml中定义了DispatcherServlet，SpringMVC会根据servlet-name加载指定的配置文件，如servlet-name取值：spmvc，SpringMVC会自动加载与web.xml同路径下名为spmvc-servlet.xml的配置文件。  
 

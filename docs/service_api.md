@@ -2,12 +2,13 @@
 
 ----------
 
-<h2 id="cid_0">exmobi-http.jar</h2>
-<h3 id="cid_0_0">功能介绍</h3>
+<h2 id="cid_0">exmobi-http.jar</h2>  
+
+<h3 id="cid_0_0">功能介绍</h3>  
 
 HTTP协议操作API能力提供，主要提供支持发送HTTP/HTTPS请求及相应的处理API。
 
-<h3 id="cid_0_1">库依赖</h3>
+<h3 id="cid_0_1">库依赖</h3>  
 
 *  公共jar  
 
@@ -24,7 +25,7 @@ httpmime-4.1.1.jar
 httpclient-4.1.1.jar  
 commons-codec-1.4.jar  
 
-<h3 id="cid_0_2">主要API</h3>
+<h3 id="cid_0_2">主要API</h3>  
 
 <table>
 <tr>
@@ -89,7 +90,7 @@ commons-codec-1.4.jar
 </tr>
 </table>
 
-<h3 id="cid_0_3">示例</h3>
+<h3 id="cid_0_3">示例</h3>  
 
 HTTP功能API调用代码片段  
 
@@ -117,16 +118,17 @@ publicvoid nomarReq1() throws Exception
 
 ```
 
-<h3 id="cid_0_4">更多</h3>
+<h3 id="cid_0_4">更多</h3>  
 
-见javadoc及example内示例
+见javadoc及example内示例  
 
-<h2 id="cid_1">exmobi-db.jar</h2>
-<h3 id="cid_1_0">功能介绍</h3>
+<h2 id="cid_1">exmobi-db.jar</h2>  
 
-数据库操作API能力提供，主要提供数据库的查询，修改及存储过程调用操作API。
+<h3 id="cid_1_0">功能介绍</h3>  
 
-<h3 id="cid_1_1">库依赖</h3>
+数据库操作API能力提供，主要提供数据库的查询，修改及存储过程调用操作API。  
+
+<h3 id="cid_1_1">库依赖</h3>  
 
 *  公共jar  
  
@@ -135,7 +137,8 @@ slf4j-api-1.6.2.jar
 slf4j-log4j12-1.6.2.jar  
 log4j-1.2.16.jar  
 
-<h3 id="cid_1_2">主要API</h3>
+<h3 id="cid_1_2">主要API</h3>  
+
 <table>
 <tr>
   <td>类</td>
@@ -186,23 +189,27 @@ publicvoid testQueryRow() throws Exception
 }
 ```
 
-<h3 id="cid_1_4">更多</h3>
+<h3 id="cid_1_4">更多</h3>  
 
 见javadoc及example内示例  
 
-<h2 id="cid_2">exmobi-common.jar</h2>
-<h3 id="cid_2_0">功能介绍</h3>
+<h2 id="cid_2">exmobi-common.jar</h2>  
 
-公共API，主要提供BASE64，MD5，UNICODE,文件读写，JSON,水印，签批，weboffice，ldap，xpath，xml，zip操作API。
+<h3 id="cid_2_0">功能介绍</h3>  
 
-<h3 id="cid_2_1">库依赖</h3>
+公共API，主要提供BASE64，MD5，UNICODE,文件读写，JSON,水印，签批，weboffice，ldap，xpath，xml，zip操作API。  
+
+<h3 id="cid_2_1">库依赖</h3>  
+
 *  公共jar  
 
 commons-logging-1.1.1.jar  
 slf4j-api-1.6.2.jar  
 slf4j-log4j12-1.6.2.jar  
 log4j-1.2.16.jar   
+
 *  其他jar
+
 xercesImpl-2.11.0-FH.jar  
 commons-codec-1.9.jar  
 ant-launcher-1.8.3.jar  
@@ -217,7 +224,7 @@ itext-2.1.7.jar
 saxon-9.1.0.8.jar  
 saxon-9.1.0.8-dom.jar  
 
-<h3 id="cid_2_2">主要API</h3>
+<h3 id="cid_2_2">主要API</h3>  
 
 <table>
 <tr>
@@ -330,16 +337,17 @@ publicvoid testToSignature()
 }
 ```
 
-<h3 id="cid_2_4">更多</h3>
+<h3 id="cid_2_4">更多</h3>  
 
 见javadoc及example示例。
 
-<h2 id="cid_3">exmobi-push.jar</h2>
-<h3 id="cid_3_0">功能介绍</h3>
+<h2 id="cid_3">exmobi-push.jar</h2>  
+
+<h3 id="cid_3_0">功能介绍</h3>  
 
 推送API，主要提供消息推送到终端设备API  
 
-<h3 id="cid_3_1">库依赖</h3>
+<h3 id="cid_3_1">库依赖</h3>  
 
 *  公共jar
 
@@ -354,7 +362,7 @@ dom4j-1.6.1.jar
 jaxen-1.1.1.jar  
 xml-apis-1.3.02.jar  
 
-<h3 id="cid_3_2">主要API</h3>
+<h3 id="cid_3_2">主要API</h3>  
 
 <table>
 <tr>
@@ -452,16 +460,17 @@ try
 
 ```
 
-<h3 id="cid_3_4">更多</h3>
+<h3 id="cid_3_4">更多</h3>  
 
 见javadoc及example示例。
 
-<h2 id="cid_4">exmobi-preview.jar</h2>
-<h3 id="cid_4_0">功能介绍</h3>
+<h2 id="cid_4">exmobi-preview.jar</h2>  
 
-文档预览API，提供文件转换成HTML或图片相关API
+<h3 id="cid_4_0">功能介绍</h3>  
 
-<h3 id="cid_4_1">库依赖</h3>
+文档预览API，提供文件转换成HTML或图片相关API  
+
+<h3 id="cid_4_1">库依赖</h3>  
 
 *  公共jar  
 
@@ -480,7 +489,7 @@ json-20090211.jar
 commons-codec-1.4.jar  
 dom4j-1.6.1.jar  
 
-<h3 id="cid_4_2">主要API</h3>
+<h3 id="cid_4_2">主要API</h3>  
 
 <table>
 <tr>
@@ -554,16 +563,17 @@ public staticvoid main(String[] args)
 
 ```
 
-<h3 id="cid_4_4">更多</h3>
+<h3 id="cid_4_4">更多</h3>  
 
-见javadoc及example示例。
+见javadoc及example示例。  
 
-<h2 id="cid_5">exmobi-access.jar</h2>
-<h3 id="cid_5_0">功能介绍</h3>
+<h2 id="cid_5">exmobi-access.jar</h2>  
 
-接入处理API，提供单独登录校验，设备信息采集，服务访问鉴权API。
+<h3 id="cid_5_0">功能介绍</h3>  
 
-<h3 id="cid_5_1">库依赖</h3>
+接入处理API，提供单独登录校验，设备信息采集，服务访问鉴权API。  
+
+<h3 id="cid_5_1">库依赖</h3>  
 
 *  公共jar  
 
@@ -579,7 +589,7 @@ exmobi-mng-1.0.0jar
 management-ms-6.0.0.jar  
 commons-beanutils-1.8.0.jar  
 
-<h3 id="cid_5_2">主要API</h3>
+<h3 id="cid_5_2">主要API</h3>  
 
 <table>
 <tr>
@@ -634,16 +644,17 @@ commons-beanutils-1.8.0.jar
 
 ```
 
-<h3 id="cid_5_4">更多</h3>
+<h3 id="cid_5_4">更多</h3>  
 
 见javadoc及example示例。
 
-<h2 id="cid_6">exmobi-business.jar</h2>
-<h3 id="cid_6_0">功能介绍</h3>
+<h2 id="cid_6">exmobi-business.jar</h2>  
 
-业务处理API，提供应用升级版本查询，设备绑定，服务参数配置获取功能。
+<h3 id="cid_6_0">功能介绍</h3>  
 
-<h3 id="cid_6_1">库依赖</h3>
+业务处理API，提供应用升级版本查询，设备绑定，服务参数配置获取功能。  
+
+<h3 id="cid_6_1">库依赖</h3>  
 
 *  公共jar  
 
@@ -657,7 +668,7 @@ log4j-1.2.16.jar
 exmobi-mng-1.0.0jar  
 management-ms-6.0.0.jar  
 
-<h3 id="cid_6_2">主要API</h3>
+<h3 id="cid_6_2">主要API</h3>  
 
 <table>
 <tr>
@@ -709,16 +720,17 @@ public AppInfo testQueryLatestApp()
 
 ```
 
-<h3 id="cid_6_4">更多</h3>
+<h3 id="cid_6_4">更多</h3>  
 
 见javadoc及example示例。
 
-<h2 id="cid_7">exmobi-mng.jar</h2>
-<h3 id="cid_7_0">功能介绍</h3>
+<h2 id="cid_7">exmobi-mng.jar</h2>  
+
+<h3 id="cid_7_0">功能介绍</h3>  
 
 通信能力API，辅助其他API与管理端进行通信。开发者只需要在web.xml中引入对应的MngListener即可。
 
-<h3 id="cid_7_1">库依赖</h3>
+<h3 id="cid_7_1">库依赖</h3>  
 
 *  公共jar  
 
@@ -739,7 +751,7 @@ commons-io-2.0.1.jar
 jyaml-1.3.jar  
 json-1.0.jar  
 
-<h3 id="cid_7_2">主要API</h3>
+<h3 id="cid_7_2">主要API</h3>  
 
 <table>
 <tr>
@@ -762,15 +774,15 @@ json-1.0.jar
 </listener>
 
 ```
-<h2 id="cid_8">exmobi-spring.jar</h2>
+<h2 id="cid_8">exmobi-spring.jar</h2>  
 
-<h3 id="cid_8_0">功能介绍</h3>
+<h3 id="cid_8_0">功能介绍</h3>  
 
 Exmobi-spring.jar是ExMobi提供的用于让服务与SpringMVC相结合的开发包，基于SpringMVC开发的服务，建议引用该包文件。  
 
 Exmobi-spring.jar主要包含API定义注解和API抽取逻辑两部分。API定义注解，帮助开发者更清晰的定义API的结构，包括请求体、正确响应示例、错误响应示例、API描述等。API抽取逻辑是ExMobi管理调用的逻辑，通过API抽取逻辑，管理端可以自动化将开发者基于SpringMVC开发的服务中的API定义展示到管理端中，方便API的管理、调试和传播。  
 
-<h3 id="cid_8_1">库依赖</h3>
+<h3 id="cid_8_1">库依赖</h3>  
 
 *  公共jar  
 
@@ -793,7 +805,7 @@ spring-core.jar
 spring-expression.jar  
 spring-web.jar  
 
-<h3 id="cid_8_2">主要API</h3>
+<h3 id="cid_8_2">主要API</h3>  
 
 <table>
 <tr>
@@ -823,7 +835,7 @@ spring-web.jar
 </tr>
 </table>
 
-<h3 id="cid_8_3">示例</h3>
+<h3 id="cid_8_3">示例</h3>  
 
 * 示例一：注解API的使用    
 
@@ -868,8 +880,8 @@ public class AddrListController {
 
 ![注解失败响应示例json](image/exmobi-spring_8942.png)  
 
-* 示例二：
+* 示例二：  
 
 API抽取逻辑功能的使用  
 
-参照[服务包介绍-API定义和管理章节的SpringMVC](https://gitdocument.exmobi.cn/exmobiserver-begin/service_package.html#cid_2_0)API定义和管理章节的SpringMVC技术开发章节的内容
+参照[服务包介绍-API定义和管理章节的SpringMVC](https://gitdocument.exmobi.cn/exmobiserver-begin/service_package.html#cid_2_0)API定义和管理章节的SpringMVC技术开发章节的内容  

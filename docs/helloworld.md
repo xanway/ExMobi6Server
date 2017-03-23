@@ -2,13 +2,16 @@
 
 ----------
 
-<h2 id="cid_0">数据库服务</h2>
-<h3 id="cid_0_0">功能介绍</h3>
+<h2 id="cid_0">数据库服务</h2>  
+
+<h3 id="cid_0_0">功能介绍</h3>  
+
 SSM开发模式，通过MyBatis这个持久层框架去操作数据库，但是exmobi-jar包内，本身也封装了对数据库操作的API，只不过不是面向对象的方式，所以在一些业务场景中，比较简单的SQL操作，也可以不通过MyBatis框架，直接用ExMobi6服务端jar包里的exmobi-db.jar去操作数据。下面我们就以一个实际的例子来体验下。  
 
 本示例以集成服务API exmobi-db.jar为例，通过对应的数据库操作API对数据库进行访问操作。并提供出相应API接口供调用查询部门信息。（在[SSM环境搭建](/exmobiserver-begin/SSM.html)的工程中实现此示例，故相关配置项不再重复描述）  
 
-<h3 id="cid_0_1">准备工作</h3>
+<h3 id="cid_0_1">准备工作</h3>  
+
 除第六章中SSM框架搭建所需jar包外还需以下jar包：  
 
 *  jackson-annotations-2.7.4.jar    
@@ -23,8 +26,10 @@ SSM开发模式，通过MyBatis这个持久层框架去操作数据库，但是e
 
 *  commons-logging-1.1.1.jar  
 
-<h3 id="cid_0_2">功能实现</h3>
-<h4 id="cid_0_2_0">第一步，编写API及视图页面</h4>
+<h3 id="cid_0_2">功能实现</h3>  
+
+<h4 id="cid_0_2_0">第一步，编写API及视图页面</h4>  
+
 编写实现API的Controller文件， 我们在com.fh.demo.controller包下建立ExMobiDbController.java文件  
 
 ```java
@@ -87,8 +92,7 @@ public class ExMobiDbController {
 		return members;
 	}
 }
-
-```
+```  
 
 上述Api实现类，实现了两个方法，第一个方法是访问数据库得到的成员数据交给jsp页面去展现，第二个方法是直接给请求者输出成员数据的json格式。  
 
@@ -132,11 +136,11 @@ public class ExMobiDbController {
 
 ```
 
-<h4 id="cid_0_2_1">第二步，本地验证功能</h4>
+<h4 id="cid_0_2_1">第二步，本地验证功能</h4>  
 
 将工程发布到tomcat中，并启动tomcat。  
 
-![发布tomcat](image/SSM7132.png)  
+![发布tomcat](image/SSM7132.png)    
 
 JSON格式数据返回：  
 
@@ -146,7 +150,7 @@ JSON格式数据返回：
 
 ![页面方式数据返回](image/SSM_7132_3.png)  
 
-<h4 id="cid_0_2_2">第三步，发布服务</h4>
+<h4 id="cid_0_2_2">第三步，发布服务</h4>  
 
 下面我们要从IDE里导出开发好的war包在ExMobi6服务端发布，服务发布流程图如下：  
 
@@ -158,16 +162,19 @@ JSON格式数据返回：
 
 ![发布服务](image/SSM_7133_4.png)  
 
-<h2 id="cid_1">Http请求及页面抓取示例服务</h2>
-<h3 id="cid_1_0">功能介绍</h3>
+<h2 id="cid_1">Http请求及页面抓取示例服务</h2>  
+
+<h3 id="cid_1_0">功能介绍</h3>  
+
 本示例以集成服务API exmobi-http.jar为例，通过对应的HTTP操作API访问[ExMobi教程系统首页](https://edu.exmobi.cn/)，然后再通过exmobi-common.jar内封装的执行Xpath相关类，对网页内容进行抓取，把教程列表信息格式化成Json数据输出。（在第六章SSM环境搭建的工程中实现此示例，故相关配置项不再重复描述）  
 
-<h3 id="cid_1_1">准备工作</h3>
+<h3 id="cid_1_1">准备工作</h3>  
 
 准备exmobi-http.jar,exmobi-common.jar及依赖的jar  
 
-<h3 id="cid_1_2">功能实现</h3>
-<h4 id="cid_1_2_0">第一步，编写API</h4>
+<h3 id="cid_1_2">功能实现</h3>  
+
+<h4 id="cid_1_2_0">第一步，编写API</h4>  
 
 编写实现此API的Controller类文件，在com.fh.demo.controller包下建立“WebParseController.java”类：  
 
@@ -233,7 +240,8 @@ public class WebParseController {
 
 ```
 
-<h4 id="cid_1_2_1">第二步，本地验证功能</h4>
+<h4 id="cid_1_2_1">第二步，本地验证功能</h4>  
+
 将工程发布到tomcat中，并启动tomcat。  
 
 ![发布服务](image/SSM7232_1.png)  
@@ -242,6 +250,6 @@ JSON格式数据返回：
 
 ![浏览器测试](image/SSM7232_2.png)  
 
-<h4 id="cid_1_2_2">第三步，发布服务</h4>
+<h4 id="cid_1_2_2">第三步，发布服务</h4>  
 
 参照[数据库服务](#cid_0)功能实现章节  

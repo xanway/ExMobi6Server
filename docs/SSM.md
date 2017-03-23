@@ -3,10 +3,12 @@
 ----------
 Spring+SpringMVC+Mybatis是目前最流行的java web框架组合，简单的来说SpringMVC负责处理客户端和web的请求，然后给客户端返回数据， Spring则是负责管理事务对象，也就是作为不同层面的衔接，而MyBatis是个持久层框架，通过MyBatis开发者可以以对象的方式操作业务系统数据库。
 
-<h2 id="cid_0">准备工作</h2>
+<h2 id="cid_0">准备工作</h2>  
+
 准备SSM框架所依赖的jar包  
 
-*  Spring相关jar包：
+*  Spring相关jar包：  
+
 spring-aop-4.3.1.RELEASE.jar  
 
 spring-beans-4.3.1.RELEASE.jar  
@@ -59,15 +61,15 @@ commons-codec-1.4.jar
 
 commons-io-2.0.1.jar   
 
-<h2 id="cid_1">IDE及JDK要求</h2>
+<h2 id="cid_1">IDE及JDK要求</h2>  
 
 使用eclipse、MyEclipse、IntelliJ IDEA均可；本教程使用的IDE为eclipse JAVA EE 4.6.0；
 
 JDK版本要求1.7（不得使用1.8）。
 
-<h2 id="cid_2">搭建整合</h2>
+<h2 id="cid_2">搭建整合</h2>  
 
-<h3 id="cid_2_0">第一步，新建Web工程</h3>
+<h3 id="cid_2_0">第一步，新建Web工程</h3>  
 
 使用Eclipse新建“Dynamic Web Projcet”：
 
@@ -85,14 +87,17 @@ JDK版本要求1.7（不得使用1.8）。
 
 ![填写项目名称](image/SSM4.png)
 
-<h3 id="cid_2_1">第二步：引入准备好的jar包</h3>
+<h3 id="cid_2_1">第二步：引入准备好的jar包</h3>  
+
 在WebContent/WEB-INF/lib目录下，把之前准备好的jar包都引入进来：
 
 ![引入jar包](image/SSM5.png)
 
-<h3 id="cid_2_2">第三步：配置jdbc.properties文件</h3>
-在src根目录下建立“jdbc. properties”配置文件，此文件用来配置工程要连接的数据库基本信息参数
-![配置jdbc](image/SSM_jdbc.png)
+<h3 id="cid_2_2">第三步：配置jdbc.properties文件</h3>  
+
+在src根目录下建立“jdbc. properties”配置文件，此文件用来配置工程要连接的数据库基本信息参数  
+
+![配置jdbc](image/SSM_jdbc.png)  
 
 内容示例：  
 
@@ -113,7 +118,8 @@ minIdle=1
 maxWait=60000
 ```  
 
-<h3 id="cid_2_3">第四步，配置spring-db.xml文件</h3>
+<h3 id="cid_2_3">第四步，配置spring-db.xml文件</h3>  
+
 在src目录下建立spring-db.xml文件，此文件用来完成Spring和Mybatis的整合。主要的就是自动扫描，自动注入，配置数据库。    
 
 ```xml
@@ -178,7 +184,7 @@ maxWait=60000
 
 ```
 
-<h3 id="cid_2_4">第五步，配置Log4j文件</h3>
+<h3 id="cid_2_4">第五步，配置Log4j文件</h3>  
 
 为了方便调试，一般都会使用日志来输出信息，Log4j是Apache的一个开放源代码项目，通过使用Log4j，我们可以控制日志信息输送的目的地是控制台、文件、GUI组件，甚至是套接口服务器、NT的事件记录器、UNIX Syslog守护进程等；我们也可以控制每一条日志的输出格式；通过定义每一条日志信息的级别，我们能够更加细致地控制日志的生成过程。
 
@@ -207,7 +213,8 @@ log4j.appender.R.layout.ConversionPattern=%-d{yyyy-MM-dd HH\:mm\:ss,SSS} [%c]-[%
 log4j.logger.org.freeswitch.esl.client.inbound.InboundClientHandler=ERROR
 ```
 
-<h3 id="cid_2_5">第六步：创建MyBatis相关文件</h3>
+<h3 id="cid_2_5">第六步：创建MyBatis相关文件</h3>  
+
 首先，我们来创建一个测试用数据库表（测试数据库为postgresql）    
 
 ```sql
@@ -238,15 +245,16 @@ ALTER TABLE "addrlist"."tbl_member" ADD PRIMARY KEY ("member_id");
 
 利用MyBatis Generator工具生成了相关代码后，把代码文件复制到工程中。如图：  
 
-![Mybatis相关代码](image/SSM6.png)
+![Mybatis相关代码](image/SSM6.png)  
 
-<h3 id="cid_2_6">第七步，建立Service接口和实现类</h3>
+<h3 id="cid_2_6">第七步，建立Service接口和实现类</h3>  
 
 目录结构：  
 
-![Service接口和实现类](image/SSM7.png)
+![Service接口和实现类](image/SSM7.png)  
 
-IMemberService.java：
+IMemberService.java：  
+
 ```java
 package com.fh.demo.service;
 
@@ -258,7 +266,8 @@ public interface IMemberService {
 
 ```
 
-MemberServiceImpl.java：
+MemberServiceImpl.java：  
+
 ```java
 package com.fh.demo.service.impl;
 
@@ -281,7 +290,9 @@ public class MemberServiceImpl implements IMemberService{
 }
 
 ```
-<h3 id="cid_2_7">第八步，配置SpringMVC</h3>
+
+<h3 id="cid_2_7">第八步，配置SpringMVC</h3>  
+
 在src目录下下建立mvc-config.xml文件，该文件主要实现了注解自动扫描机制、视图解析器、注解的启动等等。  
 
 ```xml
@@ -327,10 +338,9 @@ public class MemberServiceImpl implements IMemberService{
 	</property>
    </bean>
 </beans>  
-
 ```  
 
-<h3 id="cid_2_8">第九步，配置web.xml</h3>
+<h3 id="cid_2_8">第九步，配置web.xml</h3>  
 
 在web.xml中对spring-db.xml的引入以及配置的mvc-config.xml的Servlet就是为了完成SSM的整合。  
 
@@ -391,12 +401,13 @@ public class MemberServiceImpl implements IMemberService{
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 </web-app>
-
 ```
-<h2 id="cid_3">测试</h2>
+
+<h2 id="cid_3">测试</h2>  
+
 至此已完成了三大框架的整合，接下来我们来测试一下。  
 
-<h3 id="cid_3_0">新建jsp页面</h3>
+<h3 id="cid_3_0">新建jsp页面</h3>  
 
 ![jsp页面](image/SSM_jsp.png)  
 
@@ -419,12 +430,14 @@ ${member.name }
 
 ```  
 
-<h3 id="cid_3_1">建立MemberController类</h3>
-在com.fh.demo.controller包下建立MemberController类，作为一个控制器。  
+<h3 id="cid_3_1">建立MemberController类</h3>  
+
+在com.fh.demo.controller包下建立MemberController类，作为一个控制器。    
 
 ![MemberController类](image/SSM_controller.png)  
 
-MemberController：
+MemberController：  
+
 ```java
 package com.fh.demo.controller;
 
@@ -452,13 +465,14 @@ public class MemberController {
 		return "showmember";
 	}
 }
-
 ```
-<h3 id="cid_3_2">部署项目</h3>
+
+<h3 id="cid_3_2">部署项目</h3>  
+
 把此javaweb工程在tomcat里发布。  
 
 发布完成后，在浏览器上访问测试，访问地址格式：http://${ip}:${port}/${ProjectId}/demo/showMember?memberId=xxxxx  
 
 ![浏览器测试](image/SSM_test.png)  
 
-至此，SSM三大框架整合完毕，在此基础上可以进行后续开发。
+至此，SSM三大框架整合完毕，在此基础上可以进行后续开发。  
