@@ -9,57 +9,44 @@ Spring+SpringMVC+Mybatis是目前最流行的java web框架组合，简单的来
 
 *  Spring相关jar包：  
 
-spring-aop-4.3.1.RELEASE.jar  
-
-spring-beans-4.3.1.RELEASE.jar  
-
-spring-context-4.3.1.RELEASE.jar  
-
-spring-context-support-4.3.1.RELEASE.jar  
-
-spring-core-4.3.1.RELEASE.jar  
-
-spring-expression-4.3.1.RELEASE.jar  
-
-spring-jdbc-4.3.1.RELEASE.jar  
-
-spring-test-4.3.1.RELEASE.jar  
-
-spring-tx-4.3.1.RELEASE.jar  
-
-spring-web-4.3.1.RELEASE.jar  
-
-spring-webmvc-4.3.1.RELEASE.jar    
+> spring-aop-4.3.1.RELEASE.jar  
+> spring-beans-4.3.1.RELEASE.jar  
+> spring-context-4.3.1.RELEASE.jar  
+> spring-context-support-4.3.1.RELEASE.jar  
+> spring-core-4.3.1.RELEASE.jar  
+> spring-expression-4.3.1.RELEASE.jar  
+> spring-jdbc-4.3.1.RELEASE.jar  
+> spring-test-4.3.1.RELEASE.jar  
+> spring-tx-4.3.1.RELEASE.jar  
+> spring-web-4.3.1.RELEASE.jar  
+> spring-webmvc-4.3.1.RELEASE.jar    
 
 *  MyBatis相关jar包：  
 
-mybatis-3.3.0.jar  
-
-mybatis-spring-1.2.2.jar  
+> mybatis-3.3.0.jar  
+> mybatis-spring-1.2.2.jar  
 
 *  数据库驱动jar包(根据具体数据库选择)：  
 
-mysql-connecter-java-5.1.39.jar/postgresql-9.1-901.jdbc4.jar  
+> mysql-connecter-java-5.1.39.jar/postgresql-9.1-901.jdbc4.jar  
 
 *  日志相关jar包：  
 
-log4j-1.2.16.jar  
-
-slf4j-log4j12-1.6.2.jar  
-
-slf4j-api-1.6.2.jar  
+> log4j-1.2.16.jar  
+> slf4j-log4j12-1.6.2.jar  
+> slf4j-api-1.6.2.jar  
 
 *  映射json：  
 
-jackson-mapper-asl-1.9.13.jar    
+> jackson-mapper-asl-1.9.13.jar    
 
 *  编码相关jar包:   
 
-commons-codec-1.4.jar  
+> commons-codec-1.4.jar  
 
 *  IO处理相关jar包：   
 
-commons-io-2.0.1.jar   
+> commons-io-2.0.1.jar   
 
 <h2 id="cid_1">IDE及JDK要求</h2>  
 

@@ -14,17 +14,12 @@ SSM开发模式，通过MyBatis这个持久层框架去操作数据库，但是e
 
 除第六章中SSM框架搭建所需jar包外还需以下jar包：  
 
-*  jackson-annotations-2.7.4.jar    
-
-*  jackson-core-2.7.4.jar  
-
-*  jackson-core-asl-1.9.13.jar  
-
-*  jackson-databind-2.7.4.jar  
-
-*  mchange-commons-java-0.2.3.4.jar  
-
-*  commons-logging-1.1.1.jar  
+> jackson-annotations-2.7.4.jar    
+> jackson-core-2.7.4.jar  
+> jackson-core-asl-1.9.13.jar  
+> jackson-databind-2.7.4.jar  
+> mchange-commons-java-0.2.3.4.jar  
+> commons-logging-1.1.1.jar  
 
 <h3 id="cid_0_2">功能实现</h3>  
 
