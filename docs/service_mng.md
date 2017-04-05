@@ -55,7 +55,7 @@ exmobi-access.jar包中提供了CheckServiceToken类，其定义的checkServiceT
 
 <h2 id="cid_1">服务参数配置</h2>  
 
-章节[服务配置文件config.xml](https://gitdocument.exmobi.cn/exmobiserver-begin/service_package.html#cid_1)介绍了服务参数配置文件，同时章节[Exmobi-business.jar](https://gitdocument.exmobi.cn/exmobiserver-begin/service_api.html#cid_6)中提供了服务参数获取的API。那么在实际开发过程中如何配置和使用服务参数配置功能？  
+章节[服务配置文件config.xml](https://gitdocument.exmobi.cn/exmobiserver-begin/service_package.html#cid_1)介绍了服务参数配置文件，同时章节[Exmobi-business.jar](https://gitdocument.exmobi.cn/exmobiserver-begin/service_api.html#cid_7)中提供了服务参数获取的API。那么在实际开发过程中如何配置和使用服务参数配置功能？  
 
 首先在web工程中class目录下引入config.xml配置文件，同时	代码中调用获取参数API获取对应的参数并在页面中展示处理。  
 
