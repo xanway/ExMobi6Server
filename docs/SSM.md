@@ -463,3 +463,7 @@ public class MemberController {
 ![浏览器测试](image/SSM_test.png)  
 
 至此，SSM三大框架整合完毕，在此基础上可以进行后续开发。  
+
+<h2 id="cid_4">下载地址</h2>  
+
+此章节中搭建的SSM整合工程以及后续章节（[服务HelloWorld](https://gitdocument.exmobi.cn/exmobiserver-begin/helloworld.html)、[典型场景示例](https://gitdocument.exmobi.cn/exmobiserver-begin/typic_example.html)）的示例代码下载地址，请访问此[链接](https://github.com/zhangyihui0519/ExMobi6Server/tree/master/src)下载
