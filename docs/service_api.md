@@ -908,4 +908,4 @@ public class AddrListController {
 
 API抽取逻辑功能的使用  
 
-参照[服务包介绍-API定义和管理章节的SpringMVC](https://gitdocument.exmobi.cn/exmobiserver-begin/service_package.html#cid_2_0)API定义和管理章节的SpringMVC技术开发章节的内容  
+参照[服务包介绍-API定义和管理章节的SpringMVC](https://gitdocument.exmobi.cn/exmobi6-server-begin/service_package.html#cid_2_0)API定义和管理章节的SpringMVC技术开发章节的内容  

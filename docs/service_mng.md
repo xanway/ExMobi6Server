@@ -43,19 +43,17 @@ exmobi-access.jar包中提供了CheckServiceToken类，其定义的checkServiceT
 
 <h3 id="cid_0_2">获取平台访问token</h3>   
 
-如果是ExMobi客户端，可以直接调用应用访问服务鉴权API，向管理端 https://ip:port/api/getAccessToken 地址发起getAccessToken请求，以获取到访问token值。
+如果是ExMobi客户端，可以直接调用应用访问服务鉴权API，向管理端 https://ip:port/api/getAccessToken 地址发起getAccessToken请求，以获取到访问token值。参考ExMobi6服务接入指南教程的“[平台接口调用示例](https://gitdocument.exmobi.cn/exmobi6-server-access-guide/app_access.html#cid_0_2)”章节。
 
-如果是原生开发的应用，可以集成ExMobi发布的应用访问服务SDK，支持iOS/Android两个版本，向管理端 https://ip:port/api/getAccessToken 地址发起getAccessToken请求，以获取到访问token值。
-
-获取访问token的接口的详细定义，请参照[ExMobi6服务接入指南](https://gitdocument.exmobi.cn/exmobi6server-accessguide/index.html)教程的“/api/getAccessToken应用获取访问服务token接口”章节。
+如果是原生开发的应用，可以集成ExMobi发布的应用访问服务SDK，支持iOS/Android两个版本，向管理端 https://ip:port/api/getAccessToken 地址发起getAccessToken请求，以获取到访问token值。参照ExMobi6服务接入指南教程的“[微服务鉴权SDK集成](https://gitdocument.exmobi.cn/exmobi6-server-access-guide/authsdk.html)”章节。
 
 <h3 id="cid_0_3">访问服务</h3>  
 
-获取到访问token后，即可携带token访问服务，详细接口定义，请参照[ExMobi6服务接入指南](https://gitdocument.exmobi.cn/exmobi6server-accessguide/index.html)教程的“访问服务”章节。  
+获取到访问token后，即可携带token访问服务，详细接口定义，请参照ExMobi6服务接入指南教程的“[访问服务](https://gitdocument.exmobi.cn/exmobi6-server-access-guide/access_define.html#cid_1)”章节。  
 
 <h2 id="cid_1">服务参数配置</h2>  
 
-章节[服务配置文件config.xml](https://gitdocument.exmobi.cn/exmobiserver-begin/service_package.html#cid_1)介绍了服务参数配置文件，同时章节[Exmobi-business.jar](https://gitdocument.exmobi.cn/exmobiserver-begin/service_api.html#cid_7)中提供了服务参数获取的API。那么在实际开发过程中如何配置和使用服务参数配置功能？  
+章节[服务配置文件config.xml](https://gitdocument.exmobi.cn/exmobi6-server-begin/service_package.html#cid_1)介绍了服务参数配置文件，同时章节[Exmobi-business.jar](https://gitdocument.exmobi.cn/exmobi6-server-begin/service_api.html#cid_7)中提供了服务参数获取的API。那么在实际开发过程中如何配置和使用服务参数配置功能？  
 
 首先在web工程中class目录下引入config.xml配置文件，同时	代码中调用获取参数API获取对应的参数并在页面中展示处理。  
 

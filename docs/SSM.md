@@ -175,7 +175,7 @@ maxWait=60000
 
 为了方便调试，一般都会使用日志来输出信息，Log4j是Apache的一个开放源代码项目，通过使用Log4j，我们可以控制日志信息输送的目的地是控制台、文件、GUI组件，甚至是套接口服务器、NT的事件记录器、UNIX Syslog守护进程等；我们也可以控制每一条日志的输出格式；通过定义每一条日志信息的级别，我们能够更加细致地控制日志的生成过程。
 
-Log4j的配置很简单，而且也是通用的，下面给出一个基本的配置，换到其他项目中也无需做多大的调整，如果想做调整或者想了解Log4j的各种配置，请从哪看此链接http://blog.csdn.net/zhshulin/article/details/37937365。
+Log4j的配置很简单，而且也是通用的，下面给出一个基本的配置，换到其他项目中也无需做多大的调整，如果想做调整或者想了解Log4j的各种配置，请从哪看此链接http://blog.csdn.net/zhshulin/article/details/37937365
 
 同样是在src目录下建立log4j.properties文件，示例代码如下：  
 
@@ -228,7 +228,7 @@ ALTER TABLE "addrlist"."tbl_member" ADD PRIMARY KEY ("member_id");
 
 在第四步创建的spring-db.xml文件中，我们看到有配置mybatis的映射文件、以及Dao层的bean等配置，所以，我们现在要创建mybatis的xml映射文件、Dao层实现、实体类等。
 
-生成MyBatis的mapper映射文件、Dao层的类、对应数据库表的实体类，大家可以用MyBatis Generator工具去创建，此工具的使用方法参考此链接http://blog.csdn.net/zhshulin/article/details/23912615；
+生成MyBatis的mapper映射文件、Dao层的类、对应数据库表的实体类，大家可以用MyBatis Generator工具去创建，此工具的使用方法参考此链接http://blog.csdn.net/zhshulin/article/details/23912615
 
 利用MyBatis Generator工具生成了相关代码后，把代码文件复制到工程中。如图：  
 
@@ -466,4 +466,4 @@ public class MemberController {
 
 <h2 id="cid_4">下载地址</h2>  
 
-此章节中搭建的SSM整合工程以及后续章节（[服务HelloWorld](https://gitdocument.exmobi.cn/exmobiserver-begin/helloworld.html)、[典型场景示例](https://gitdocument.exmobi.cn/exmobiserver-begin/typic_example.html)）的示例代码下载地址，请访问此[链接](https://github.com/zhangyihui0519/ExMobi6Server/tree/master/src)下载
+此章节中搭建的SSM整合工程以及后续章节（[服务HelloWorld](https://gitdocument.exmobi.cn/exmobi6-server-begin/helloworld.html)、[典型场景示例](https://gitdocument.exmobi.cn/exmobi6-server-begin/typic_example.html)）的示例代码下载地址，请访问此[链接](https://github.com/zhangyihui0519/ExMobi6Server/tree/master/src)下载

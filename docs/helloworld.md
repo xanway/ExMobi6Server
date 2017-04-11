@@ -8,7 +8,7 @@
 
 SSM开发模式，通过MyBatis这个持久层框架去操作数据库，但是exmobi-jar包内，本身也封装了对数据库操作的API，只不过不是面向对象的方式，所以在一些业务场景中，比较简单的SQL操作，也可以不通过MyBatis框架，直接用ExMobi6服务端jar包里的exmobi-db.jar去操作数据。下面我们就以一个实际的例子来体验下。  
 
-本示例以集成服务API exmobi-db.jar为例，通过对应的数据库操作API对数据库进行访问操作。并提供出相应API接口供调用查询部门信息。（在[SSM环境搭建](/exmobiserver-begin/SSM.html)的工程中实现此示例，故相关配置项不再重复描述）  
+本示例以集成服务API exmobi-db.jar为例，通过对应的数据库操作API对数据库进行访问操作。并提供出相应API接口供调用查询部门信息。（在[SSM环境搭建](https://gitdocument.exmobi.cn/exmobi6-server-begin/SSM.html)的工程中实现此示例，故相关配置项不再重复描述）  
 
 <h3 id="cid_0_1">准备工作</h3>  
 
