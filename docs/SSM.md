@@ -219,8 +219,8 @@ CREATE TABLE "addrlist"."tbl_member" (
 "createtype" int4 DEFAULT 1,
 "creat_datetime" timestamp DEFAULT now()
 );
-INSERT INTO "addrlist"."tbl_member" VALUES ('001d01be-8447-4561-a718-79b3a0ed0381', '张三', 'zhangsan', null, '13400917283', 'zhangsan@nj.fiberhome.com.cn', null, null, 'a54c934e-829b-404d-9555-5cbfa6039f71', '*', '2', '2017-01-11 11:16:11');
-INSERT INTO "addrlist"."tbl_member" VALUES ('0269c859-2494-47d2-ada3-a7d9c0a38f8e', '李四', 'lisi', null, '18652871836', 'lisi@nj.fiberhome.com.cn', null, null, '70d05f67-98f6-4c33-973d-237b826dfdf9', '*', '2', '2017-01-11 11:16:11');
+INSERT INTO "addrlist"."tbl_member" VALUES ('001d01be-8447-4561-a718-79b3a0ed0381', '张三', 'zhangsan', null, '13400917283', 'zhangsan@163.com', null, null, 'a54c934e-829b-404d-9555-5cbfa6039f71', '*', '2', '2017-01-11 11:16:11');
+INSERT INTO "addrlist"."tbl_member" VALUES ('0269c859-2494-47d2-ada3-a7d9c0a38f8e', '李四', 'lisi', null, '18652871836', 'lisi@163.com', null, null, '70d05f67-98f6-4c33-973d-237b826dfdf9', '*', '2', '2017-01-11 11:16:11');
 ALTER TABLE "addrlist"."tbl_member" ADD PRIMARY KEY ("member_id");
 ```  
 
